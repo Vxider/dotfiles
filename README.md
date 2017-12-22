@@ -3,6 +3,6 @@
 ## INSTALL
 
 ```
-git clone https://github.com/Vxider/dotfiles.git ~/.config
+git clone https://github.com/Vxider/dotfiles.git ~/.dotfiles
 ~/.config/install.sh
 ```

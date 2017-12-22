@@ -11,17 +11,17 @@ source ~/.vim_runtime/vimrcs/plugins_config.vim
 source ~/.vim_runtime/vimrcs/extended.vim
 
 try
-    source ~/.config/vim/keymap.vim
+    source ~/.dotfile/vim/keymap.vim
 catch
 
 endtry
 try
-    source ~/.config/vim/plugin.vim
+    source ~/.dotfile/vim/plugin.vim
 catch
 endtry
 
 try
-    source ~/.config/vim/vimrc.vim
+    source ~/.dotfile/vim/vimrc.vim
 catch
 endtry
 ' > ~/.vimrc
