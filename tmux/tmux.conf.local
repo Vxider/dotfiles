@@ -277,9 +277,9 @@ set -g prefix C-x
 bind C-x send-prefix
 
 # 新窗口设置当前目录
-bind-key c new-window -c "#{pane_current_path}"
-bind-key % split-window -h -c "#{pane_current_path}"
-bind-key '"' split-window -v -c "#{pane_current_path}"
+#bind-key c new-window -c "#{pane_current_path}"
+#bind-key % split-window -h -c "#{pane_current_path}"
+#bind-key '"' split-window -v -c "#{pane_current_path}"
 
 # 禁止窗口自动重命名
 set-option -g allow-rename off

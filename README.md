@@ -1,5 +1,8 @@
 # Vxider dotfiles
 
-## vim
+## INSTALL
 
-Use [The Ultimate vimrc](https://github.com/amix/vimrc.git)
+```
+git clone https://github.com/Vxider/dotfiles.git ~/.config
+~/.config/install.sh
+```

@@ -85,13 +85,10 @@ COMPLETION_WAITING_DOTS="true"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
 
-
-# User configuration
+# =============================================================================
+#                             User Configuration 
+# =============================================================================
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -130,16 +127,16 @@ export PATH=$PYENV_ROOT/bin:$PATH
 eval "$(pyenv init -)"
 
 #IncludeOS conf
-export INCLUDEOS_PREFIX=/Users/Vxider/Documents/Development/IncludeOS/local
-export PATH=$PATH:$INCLUDEOS_PREFIX/bin
+#export INCLUDEOS_PREFIX=/Users/Vxider/Documents/Development/IncludeOS/local
+#export PATH=$PATH:$INCLUDEOS_PREFIX/bin
 
 # Settings or jenv
 export PATH=$HOME/.jenv/bin:$PATH
 eval "$(jenv init -)"
 
 # ls color
-export LS_OPTIONS='--color=auto' # 如果没有指定，则自动选择颜色
-export CLICOLOR='Yes' #是否输出颜色
+# export LS_OPTIONS='--color=auto' # 如果没有指定，则自动选择颜色
+# export CLICOLOR='Yes' #是否输出颜色
 
 # source local configuration
 source ~/.zshrc.local

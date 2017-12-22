@@ -2390,25 +2390,6 @@
                             },
                             {
                                 "from": {
-                                    "key_code": "i",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "right_shift"
-                                        ],
-                                        "optional": [
-                                            "caps_lock"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "shell_command": "open '/Users/Vxider/Applications/JetBrains Toolbox/IntelliJ IDEA Ultimate.app'"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
                                     "key_code": "v",
                                     "modifiers": {
                                         "mandatory": [
