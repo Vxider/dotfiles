@@ -113,6 +113,8 @@ compctl -g '~/.teamocil/*(:t:r)' itermocil
 # Alias
 alias protoc_gen="protoc -I=. --cpp_out=."
 alias cloc_noproto="cloc . --exclude-ext=pb.h,pb.cc"
+alias proxy_set="export https_proxy=http://127.0.0.1:9090;export http_proxy=http://127.0.0.1:9090"
+alias proxy_unset="unset http_proxy https_proxy"
 
 # PATH Configuration
 export ANDROID_HOME=/Users/Vxider/Documents/Development/android-sdk-macosx/
