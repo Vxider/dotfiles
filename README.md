@@ -4,5 +4,5 @@
 
 ```
 git clone https://github.com/Vxider/dotfiles.git ~/.dotfiles
-~/.config/install.sh
+~/.dotfiles/install.sh
 ```
