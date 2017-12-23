@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 
-git clone --depth=1 https://github.com/amix/vimrc.git ~/.vim_runtime
+#git clone --depth=1 https://github.com/amix/vimrc.git ~/.vim_runtime
 
 echo 'set runtimepath+=~/.vim_runtime
 
@@ -11,17 +11,17 @@ source ~/.vim_runtime/vimrcs/plugins_config.vim
 source ~/.vim_runtime/vimrcs/extended.vim
 
 try
-    source ~/.dotfile/vim/keymap.vim
+    source ~/.dotfiles/vim/keymap.vim
 catch
 
 endtry
 try
-    source ~/.dotfile/vim/plugin.vim
+    source ~/.dotfiles/vim/plugin.vim
 catch
 endtry
 
 try
-    source ~/.dotfile/vim/vimrc.vim
+    source ~/.dotfiles/vim/vimrc.vim
 catch
 endtry
 ' > ~/.vimrc
