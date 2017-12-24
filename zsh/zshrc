@@ -115,6 +115,8 @@ alias protoc_gen="protoc -I=. --cpp_out=."
 alias cloc_noproto="cloc . --exclude-ext=pb.h,pb.cc"
 alias proxy_set="export https_proxy=http://127.0.0.1:9090;export http_proxy=http://127.0.0.1:9090"
 alias proxy_unset="unset http_proxy https_proxy"
+alias docker_rmi_untag="docker rmi $(docker images | awk '/^<none>/ { print $3}')"
+alias docker_rmi_all="docker rmi $(docker images -q)"
 
 # PATH Configuration
 export ANDROID_HOME=/Users/Vxider/Documents/Development/android-sdk-macosx/
