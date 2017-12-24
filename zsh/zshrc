@@ -6,7 +6,7 @@
 export ZSH=~/.oh-my-zsh
 
 # install Theme
-source ~/.dotfiles/zsh/config/theme.zsh
+source ~/.dotfiles/zsh/configs/theme.zsh
 
 # iterm2 shell integration
 source ~/.iterm2_shell_integration.zsh
