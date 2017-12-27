@@ -9,5 +9,5 @@ echo 'install vim...'
 echo 'install zsh'
 ~/.dotfiles/zsh/install.sh
 
-echo 'install karabiner'
-~/.dotfiles/karabiner/install.sh
+#echo 'install karabiner'
+#~/.dotfiles/karabiner/install.sh
