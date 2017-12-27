@@ -12,8 +12,8 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 # install zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
-mkdir -p ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel9k
-cp -r ~/.dotfiles/zsh/powerlevel9k ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel9k
+mkdir -p ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes
+cp -r ~/.dotfiles/zsh/powerlevel9k ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/
 ln -sf ~/.dotfiles/zsh/zshrc ~/.zshrc
 
 echo 'export DEFAULT_USER=""' >> ~/.zshrc.local
