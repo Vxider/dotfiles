@@ -30,7 +30,7 @@
 
  #POWERLEVEL9K_TIME_BACKGROUND='175'
  POWERLEVEL9K_TIME_FORMAT='%D{%H:%M}'
- POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(ssh os_icon vi_mode_joined time context root_indicator dir dir_writable newline vcs)
+ POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(ssh os_icon vi_mode_joined time context root_indicator dir dir_writable vcs)
  POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(background_jobs command_execution_time)
  POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
  #POWERLEVEL9K_COLOR_SCHEME='light' #color theme for light colors
