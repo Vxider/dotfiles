@@ -1,13 +1,13 @@
 #!/bin/sh
 
 echo 'install tmux...'
-tmux/install.sh
+~/.dotfiles/tmux/install.sh
 
 echo 'install vim...'
-vim/install.sh
+~/.dotfiles/vim/install.sh
 
 echo 'install zsh'
-zsh/install.sh
+~/.dotfiles/zsh/install.sh
 
 echo 'install karabiner'
-karabiner/install.sh
+~/.dotfiles/karabiner/install.sh
