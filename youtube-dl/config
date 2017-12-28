@@ -1,0 +1,17 @@
+# Lines starting with # are comments
+
+# Do not copy the mtime
+--no-mtime
+
+# Use this proxy
+#--proxy 127.0.0.1:9090
+--proxy socks5://127.0.0.1:9091
+
+# auto login
+--netrc
+
+# Save all videos under Movies directory in your home directory
+-o /Users/Vxider/Downloads/youtube-dl/%(title)s.%(ext)s
+
+# Download best format available but not better that 480p
+-f 'bestvideo[height<=1080]+bestaudio/best[height<=1080]'
