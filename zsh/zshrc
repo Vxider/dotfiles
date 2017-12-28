@@ -34,6 +34,7 @@ alias proxy_unset="unset http_proxy https_proxy"
 alias docker_rmi_untag="docker rmi $(docker images | awk '/^<none>/ { print $3}')"
 alias docker_rmi_all="docker rmi $(docker images -q)"
 alias list_colors="for code ({000..255}) print -P -- \"$code: %F{$code}This is how your text would look like%f\""
+alias youtube="youtube-dl"
 
 # source local configuration
 source ~/.zshrc.local
