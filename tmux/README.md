@@ -1,3 +1,3 @@
 # tmux
 
-## use [gpakosz/.tmux](https://github.com/gpakosz/.tmux.git)
+Based on [gpakosz/.tmux](https://github.com/gpakosz/.tmux.git)
