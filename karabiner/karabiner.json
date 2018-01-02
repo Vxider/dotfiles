@@ -9,7 +9,8 @@
             "complex_modifications": {
                 "parameters": {
                     "basic.to_delayed_action_delay_milliseconds": 500,
-                    "basic.to_if_alone_timeout_milliseconds": 1000
+                    "basic.to_if_alone_timeout_milliseconds": 1000,
+                    "basic.to_if_held_down_threshold_milliseconds": 500
                 },
                 "rules": []
             },
@@ -236,7 +237,8 @@
             "complex_modifications": {
                 "parameters": {
                     "basic.to_delayed_action_delay_milliseconds": 500,
-                    "basic.to_if_alone_timeout_milliseconds": 1000
+                    "basic.to_if_alone_timeout_milliseconds": 1000,
+                    "basic.to_if_held_down_threshold_milliseconds": 500
                 },
                 "rules": [
                     {
@@ -2352,6 +2354,44 @@
                             },
                             {
                                 "from": {
+                                    "key_code": "r",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "right_shift"
+                                        ],
+                                        "optional": [
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "open '/Applications/Things3.app'"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "g",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "right_shift"
+                                        ],
+                                        "optional": [
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "open '/Applications/Tower.app'"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
                                     "key_code": "m",
                                     "modifiers": {
                                         "mandatory": [
@@ -2424,6 +2464,32 @@
                                 "to": [
                                     {
                                         "key_code": "right_command"
+                                    }
+                                ],
+                                "to_if_alone": [
+                                    {
+                                        "key_code": "escape"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Post escape if left_control is pressed alone.",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "left_control",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_control"
                                     }
                                 ],
                                 "to_if_alone": [
