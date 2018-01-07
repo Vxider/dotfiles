@@ -1,6 +1,6 @@
 # zshrc configuration
 
-Based on [Oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
+Based on [Oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) and [powerlevel9k](https://github.com/bhilburn/powerlevel9k)
 
 ## 1.INSTALL
 
