@@ -2430,6 +2430,26 @@
                             },
                             {
                                 "from": {
+                                    "key_code": "c",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "right_shift",
+                                            "right_command"
+                                        ],
+                                        "optional": [
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "open '/Users/Vxider/Applications/JetBrains Toolbox/CLion.app'"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
                                     "key_code": "v",
                                     "modifiers": {
                                         "mandatory": [
