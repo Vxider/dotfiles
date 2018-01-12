@@ -2540,7 +2540,7 @@
                                 "to": [
                                     {
                                         "mouse_key": {
-                                            "y": -1536
+                                            "y": -1530
                                         }
                                     }
                                 ],
@@ -2551,7 +2551,8 @@
                                     "key_code": "a",
                                     "modifiers": {
                                         "mandatory": [
-                                            "right_shift"
+                                            "right_shift",
+                                            "right_command"
                                         ],
                                         "optional": [
                                             "any"
@@ -2561,7 +2562,7 @@
                                 "to": [
                                     {
                                         "mouse_key": {
-                                            "x": -1536
+                                            "x": -1530
                                         }
                                     }
                                 ],
@@ -2572,7 +2573,8 @@
                                     "key_code": "s",
                                     "modifiers": {
                                         "mandatory": [
-                                            "right_shift"
+                                            "right_shift",
+                                            "right_command"
                                         ],
                                         "optional": [
                                             "any"
@@ -2582,7 +2584,7 @@
                                 "to": [
                                     {
                                         "mouse_key": {
-                                            "y": 1536
+                                            "y": 1530
                                         }
                                     }
                                 ],
@@ -2593,7 +2595,8 @@
                                     "key_code": "d",
                                     "modifiers": {
                                         "mandatory": [
-                                            "right_shift"
+                                            "right_shift",
+                                            "right_command"
                                         ],
                                         "optional": [
                                             "any"
@@ -2603,7 +2606,7 @@
                                 "to": [
                                     {
                                         "mouse_key": {
-                                            "x": 1536
+                                            "x": 1530
                                         }
                                     }
                                 ],
@@ -2643,6 +2646,99 @@
                                 "to": [
                                     {
                                         "pointing_button": "button2"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Mouse keys - SLOW",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "w",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "right_shift",
+                                            "right_option"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "mouse_key": {
+                                            "y": -700
+                                        }
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "a",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "right_shift",
+                                            "right_option"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "mouse_key": {
+                                            "x": -700
+                                        }
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "s",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "right_shift",
+                                            "right_option"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "mouse_key": {
+                                            "y": 700
+                                        }
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "d",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "right_shift",
+                                            "right_option"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "mouse_key": {
+                                            "x": 700
+                                        }
                                     }
                                 ],
                                 "type": "basic"
