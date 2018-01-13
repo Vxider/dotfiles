@@ -2470,9 +2470,65 @@
                         ]
                     },
                     {
-                        "description": "Post Escape if Command_R is pressed alone.",
+                        "description": "Change input source to U.S. by ESC, with vscode.",
                         "manipulators": [
                             {
+                                "conditions": [
+                                    {
+                                        "type": "input_source_unless",
+                                        "input_sources": [
+                                            {
+                                                "language": "en"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "frontmost_application_if",
+                                        "bundle_identifiers": [
+                                            "^com\\.microsoft\\.VSCode$"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "escape",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "escape"
+                                    }
+                                ],
+                                "to_if_alone": [
+                                    {
+                                        "select_input_source": {
+                                            "input_source_id": "com.apple.keylayout.ABC"
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "type": "input_source_unless",
+                                        "input_sources": [
+                                            {
+                                                "language": "en"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "frontmost_application_if",
+                                        "bundle_identifiers": [
+                                            "^com\\.microsoft\\.VSCode$"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic",
                                 "from": {
                                     "key_code": "right_command",
                                     "modifiers": {
@@ -2488,19 +2544,23 @@
                                 ],
                                 "to_if_alone": [
                                     {
+                                        "select_input_source": {
+                                            "input_source_id": "com.apple.keylayout.ABC"
+                                        }
+                                    },
+                                    {
                                         "key_code": "escape"
                                     }
-                                ],
-                                "type": "basic"
+                                ]
                             }
                         ]
                     },
                     {
-                        "description": "Post Escape if left_control is pressed alone.",
+                        "description": "Post Escape if Command_R is pressed alone.",
                         "manipulators": [
                             {
                                 "from": {
-                                    "key_code": "left_control",
+                                    "key_code": "right_command",
                                     "modifiers": {
                                         "optional": [
                                             "any"
@@ -2509,7 +2569,7 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "left_control"
+                                        "key_code": "right_command"
                                     }
                                 ],
                                 "to_if_alone": [
