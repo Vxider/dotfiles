@@ -36,6 +36,7 @@ alias docker_rmi_all="docker rmi \$(docker images -a -q)"
 alias docker_rm_all="docker rm \$(docker ps -a -f status=exited -q)"
 alias list_colors="for code ({000..255}) print -P -- \"\$code: %F{\$code}This is how your text would look like%f\""
 alias youtube="youtube-dl"
+alias lscleanup="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user"
 
 # source local configuration
 source ~/.zshrc.local
