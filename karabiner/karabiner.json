@@ -2470,6 +2470,77 @@
                         ]
                     },
                     {
+                        "description": "Change input source with right_shift.",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "type": "input_source_if",
+                                        "input_sources": [
+                                            {
+                                                "language": "en"
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "right_shift",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "right_shift"
+                                    }
+                                ],
+                                "to_if_alone": [
+                                    {
+                                        "select_input_source": {
+                                            "input_source_id": "com.apple.inputmethod.SCIM.ITABC"
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "type": "input_source_unless",
+                                        "input_sources": [
+                                            {
+                                                "language": "en"
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "right_shift",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "right_shift"
+                                    }
+                                ],
+                                "to_if_alone": [
+                                    {
+                                        "select_input_source": {
+                                            "input_source_id": "com.apple.keylayout.ABC"
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
                         "description": "Change input source to U.S. by ESC, in vscode.",
                         "manipulators": [
                             {
