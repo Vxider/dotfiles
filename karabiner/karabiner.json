@@ -2508,97 +2508,25 @@
                         ]
                     },
                     {
-                        "description": "Change input source with left_shift.",
-                        "manipulators": [
-                            {
-                                "conditions": [
-                                    {
-                                        "type": "input_source_if",
-                                        "input_sources": [
-                                            {
-                                                "language": "en"
-                                            }
-                                        ]
-                                    }
-                                ],
-                                "type": "basic",
-                                "from": {
-                                    "key_code": "left_shift",
-                                    "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "left_shift"
-                                    }
-                                ],
-                                "to_if_alone": [
-                                    {
-                                        "select_input_source": {
-                                            "input_source_id": "com.apple.inputmethod.SCIM.ITABC"
-                                        }
-                                    }
-                                ]
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "type": "input_source_unless",
-                                        "input_sources": [
-                                            {
-                                                "language": "en"
-                                            }
-                                        ]
-                                    }
-                                ],
-                                "type": "basic",
-                                "from": {
-                                    "key_code": "left_shift",
-                                    "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "left_shift"
-                                    }
-                                ],
-                                "to_if_alone": [
-                                    {
-                                        "select_input_source": {
-                                            "input_source_id": "com.apple.keylayout.ABC"
-                                        }
-                                    }
-                                ]
-                            }
-                        ]
-                    },
-                    {
                         "description": "Change input source to U.S. by ESC, in vscode.",
                         "manipulators": [
                             {
                                 "conditions": [
                                     {
-                                        "type": "input_source_unless",
                                         "input_sources": [
                                             {
                                                 "language": "en"
                                             }
-                                        ]
+                                        ],
+                                        "type": "input_source_unless"
                                     },
                                     {
-                                        "type": "frontmost_application_if",
                                         "bundle_identifiers": [
                                             "^com\\.microsoft\\.VSCode$"
-                                        ]
+                                        ],
+                                        "type": "frontmost_application_if"
                                     }
                                 ],
-                                "type": "basic",
                                 "from": {
                                     "key_code": "escape",
                                     "modifiers": {
@@ -2618,26 +2546,26 @@
                                             "input_source_id": "com.apple.keylayout.ABC"
                                         }
                                     }
-                                ]
+                                ],
+                                "type": "basic"
                             },
                             {
                                 "conditions": [
                                     {
-                                        "type": "input_source_unless",
                                         "input_sources": [
                                             {
                                                 "language": "en"
                                             }
-                                        ]
+                                        ],
+                                        "type": "input_source_unless"
                                     },
                                     {
-                                        "type": "frontmost_application_if",
                                         "bundle_identifiers": [
                                             "^com\\.microsoft\\.VSCode$"
-                                        ]
+                                        ],
+                                        "type": "frontmost_application_if"
                                     }
                                 ],
-                                "type": "basic",
                                 "from": {
                                     "key_code": "right_command",
                                     "modifiers": {
@@ -2660,26 +2588,26 @@
                                     {
                                         "key_code": "escape"
                                     }
-                                ]
+                                ],
+                                "type": "basic"
                             },
                             {
                                 "conditions": [
                                     {
-                                        "type": "input_source_unless",
                                         "input_sources": [
                                             {
                                                 "language": "en"
                                             }
-                                        ]
+                                        ],
+                                        "type": "input_source_unless"
                                     },
                                     {
-                                        "type": "frontmost_application_if",
                                         "bundle_identifiers": [
                                             "^com\\.microsoft\\.VSCode$"
-                                        ]
+                                        ],
+                                        "type": "frontmost_application_if"
                                     }
                                 ],
-                                "type": "basic",
                                 "from": {
                                     "key_code": "left_control",
                                     "modifiers": {
@@ -2702,7 +2630,8 @@
                                     {
                                         "key_code": "escape"
                                     }
-                                ]
+                                ],
+                                "type": "basic"
                             }
                         ]
                     },
@@ -2726,6 +2655,32 @@
                                 "to_if_alone": [
                                     {
                                         "key_code": "escape"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Post CAPS_LOCK if Shift_L is pressed alone.",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "left_shift",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_shift"
+                                    }
+                                ],
+                                "to_if_alone": [
+                                    {
+                                        "key_code": "caps_lock"
                                     }
                                 ],
                                 "type": "basic"
