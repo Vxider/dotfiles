@@ -2319,7 +2319,8 @@
                                     "key_code": "p",
                                     "modifiers": {
                                         "mandatory": [
-                                            "right_shift"
+                                            "right_shift",
+                                            "right_command"
                                         ],
                                         "optional": [
                                             "caps_lock"
