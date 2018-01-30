@@ -2546,6 +2546,7 @@
                                         "bundle_identifiers": [
                                             "^com\\.microsoft\\.VSCode$",
                                             "^com\\.jetbrains\\.CLion",
+                                            "^com\\.jetbrains\\.intellij",
                                             "^com\\.googlecode\\.iterm2",
                                             "^org\\.vim\\.MacVim"
                                         ],
@@ -2588,6 +2589,7 @@
                                         "bundle_identifiers": [
                                             "^com\\.microsoft\\.VSCode$",
                                             "^com\\.jetbrains\\.CLion",
+                                            "^com\\.jetbrains\\.intellij",
                                             "^com\\.googlecode\\.iterm2",
                                             "^org\\.vim\\.MacVim"
                                         ],
