@@ -15,8 +15,8 @@ source ~/.iterm2_shell_integration.zsh
 #                                  Plugins 
 # =============================================================================
 plugins=(git brew-cask colored-man osx autojump zsh-autosuggestions
-         colored-man-pages vi-mode sublime zsh-syntax-highlighting
-         docker crash)
+         colored-man-pages vi-mode zsh-syntax-highlighting
+         docker)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -34,7 +34,7 @@ alias proxy_unset="unset http_proxy https_proxy"
 alias docker_rmi_untag="docker rmi \$(docker images | awk '/^<none>/ { print \$3}')"
 alias docker_rmi_all="docker rmi \$(docker images -a -q)"
 alias docker_rm_all="docker rm \$(docker ps -a -f status=exited -q)"
-alias list_colors="for code ({000..255}) print -P -- \"\$code: %F{\$code}This is how your text would look like%f\""
+alias lscolors="for code ({000..255}) print -P -- \"\$code: %F{\$code}This is how your text would look like%f\""
 alias youtube="youtube-dl"
 # Clean up LaunchServices to remove duplicates in the “Open With” menu
 #alias lscleanup="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user"
