@@ -32,7 +32,7 @@
 
  #POWERLEVEL9K_TIME_BACKGROUND='175'
  POWERLEVEL9K_TIME_FORMAT='%D{%H:%M}'
- POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(vi_mode_joined root_indicator dir_writable vcs)
+ POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(vi_mode_joined dir dir_writable vcs)
  #POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(vi_mode_joined context root_indicator dir dir_writable vcs)
  POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(command_execution_time)
  POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
