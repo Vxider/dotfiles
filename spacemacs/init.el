@@ -49,8 +49,8 @@
       ;; (shell :variables
       ;;        shell-default-height 30
       ;;        shell-default-position 'bottom)
-      ;; spell-checking
-      ;; syntax-checking
+      spell-checking
+      syntax-checking
       ;; version-control
       )
     ;; List of additional packages that will be installed without being
@@ -135,11 +135,11 @@
     dotspacemacs-colorize-cursor-according-to-state t
     ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
     ;; quickly tweak the mode-line size to make separators look not too crappy.
-    dotspacemacs-default-font '("Monaco"
+    dotspacemacs-default-font '("Source Code Pro"
                                 :size 16
                                 :weight normal
                                 :width normal
-                                :powerline-scale 1.0)
+                                :powerline-scale 1.1)
     ;; The leader key
     dotspacemacs-leader-key "SPC"
     ;; The key used for Emacs commands (M-x) (after pressing on the leader key).
@@ -262,6 +262,7 @@
     ;;                       text-mode
     ;;   :size-limit-kb 1000)
     ;; (default nil)
+
     dotspacemacs-line-numbers nil
     ;; Code folding method. Possible values are `evil' and `origami'.
     ;; (default 'evil)
@@ -312,7 +313,51 @@
   This is the place where most of your configurations should be done. Unless it is
   explicitly specified that a variable should be set before a package is loaded,
   you should place your code here."
-  )
+
+  (spacemacs/toggle-line-numbers-on)
+  (global-company-mode 1)
+  
+  (key-chord-define evil-insert-state-map "jj" 'evil-normal-state)
+
+  ;; 快速打开配置文件
+  (defun open-init-file()
+    (interactive)
+    (find-file "~/.spacemacs.d/init.el"))
+
+  ;; 最近打开文件
+  (require 'recentf)
+  (recentf-mode 1)
+  (setq recentf-max-menu-item 10)
+
+  ;; 默认全屏
+  (setq initial-frame-alist (quote ((fullscreen . maximized))))
+
+  ;; 文件修改自动加载
+  (global-auto-revert-mode 1)
+
+  ;; dired-mode 重用buffer
+  (put 'dired-find-alternate-file 'disabled nil)
+
+  ;; 延迟加载
+  (with-eval-after-load 'dired
+    (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file))
+  
+  dotspacemacs-default-font '("Monaco"
+                              :size 16
+                              :weight normal
+                              :width normal
+                              :powerline-scale 1.5)
+  ;; 更改显示字体大小 16pt
+  ;; http://stackoverflow.com/questions/294664/how-to-set-the-font-size-in-emacs
+  (set-face-attribute 'default nil :height 140)
+
+   ;; Evil Numbers
+   ;;(define-key evil-normal-state-map (kbd "C-c +") 'evil-numbers/inc-at-pt)
+   ;;(define-key evil-normal-state-map (kbd "C-c -") 'evil-numbers/dec-at-pt)
+
+
+   (key-chord-define evil-insert-state-map "jj" 'evil-normal-state)
+)
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
@@ -323,47 +368,11 @@
  ;; If there is more than one, they won't work right.
  '(evil-want-Y-yank-to-eol nil)
  '(package-selected-packages
-   '(company-web web-completion-data web-mode tagedit slim-mode scss-mode sass-mode pug-mode helm-css-scss haml-mode emmet-mode unfill smeargle orgit org-projectile org-category-capture org-present org-pomodoro alert log4e gntp org-mime org-download mwim mmm-mode markdown-toc markdown-mode magit-gitflow htmlize helm-gitignore helm-company helm-c-yasnippet gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md fuzzy flyspell-correct-helm flyspell-correct flycheck-pos-tip pos-tip flycheck evil-magit magit magit-popup git-commit ghub with-editor company-statistics company auto-yasnippet yasnippet auto-dictionary ac-ispell auto-complete zenburn-theme zen-and-art-theme white-sand-theme underwater-theme ujelly-theme twilight-theme twilight-bright-theme twilight-anti-bright-theme toxi-theme tao-theme tangotango-theme tango-plus-theme tango-2-theme sunny-day-theme sublime-themes subatomic256-theme subatomic-theme spacegray-theme soothe-theme solarized-theme soft-stone-theme soft-morning-theme soft-charcoal-theme smyx-theme seti-theme reverse-theme rebecca-theme railscasts-theme purple-haze-theme professional-theme planet-theme phoenix-dark-pink-theme phoenix-dark-mono-theme organic-green-theme omtose-phellack-theme oldlace-theme occidental-theme obsidian-theme noctilux-theme naquadah-theme mustang-theme monokai-theme monochrome-theme molokai-theme moe-theme minimal-theme material-theme majapahit-theme madhat2r-theme lush-theme light-soap-theme jbeans-theme jazz-theme ir-black-theme inkpot-theme heroku-theme hemisu-theme hc-zenburn-theme gruvbox-theme gruber-darker-theme grandshell-theme gotham-theme gandalf-theme flatui-theme flatland-theme farmhouse-theme exotica-theme espresso-theme dracula-theme django-theme darktooth-theme autothemer darkokai-theme darkmine-theme darkburn-theme dakrone-theme cyberpunk-theme color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized clues-theme cherry-blossom-theme busybee-theme bubbleberry-theme birds-of-paradise-plus-theme badwolf-theme apropospriate-theme anti-zenburn-theme ample-zen-theme ample-theme alect-themes afternoon-theme reveal-in-osx-finder pbcopy osx-trash osx-dictionary launchctl ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint indent-guide hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump f dash s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async)))
+   '(markdown-mode+ company-web web-completion-data web-mode tagedit slim-mode scss-mode sass-mode pug-mode helm-css-scss haml-mode emmet-mode unfill smeargle orgit org-projectile org-category-capture org-present org-pomodoro alert log4e gntp org-mime org-download mwim mmm-mode markdown-toc markdown-mode magit-gitflow htmlize helm-gitignore helm-company helm-c-yasnippet gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md fuzzy flyspell-correct-helm flyspell-correct flycheck-pos-tip pos-tip flycheck evil-magit magit magit-popup git-commit ghub with-editor company-statistics company auto-yasnippet yasnippet auto-dictionary ac-ispell auto-complete zenburn-theme zen-and-art-theme white-sand-theme underwater-theme ujelly-theme twilight-theme twilight-bright-theme twilight-anti-bright-theme toxi-theme tao-theme tangotango-theme tango-plus-theme tango-2-theme sunny-day-theme sublime-themes subatomic256-theme subatomic-theme spacegray-theme soothe-theme solarized-theme soft-stone-theme soft-morning-theme soft-charcoal-theme smyx-theme seti-theme reverse-theme rebecca-theme railscasts-theme purple-haze-theme professional-theme planet-theme phoenix-dark-pink-theme phoenix-dark-mono-theme organic-green-theme omtose-phellack-theme oldlace-theme occidental-theme obsidian-theme noctilux-theme naquadah-theme mustang-theme monokai-theme monochrome-theme molokai-theme moe-theme minimal-theme material-theme majapahit-theme madhat2r-theme lush-theme light-soap-theme jbeans-theme jazz-theme ir-black-theme inkpot-theme heroku-theme hemisu-theme hc-zenburn-theme gruvbox-theme gruber-darker-theme grandshell-theme gotham-theme gandalf-theme flatui-theme flatland-theme farmhouse-theme exotica-theme espresso-theme dracula-theme django-theme darktooth-theme autothemer darkokai-theme darkmine-theme darkburn-theme dakrone-theme cyberpunk-theme color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized clues-theme cherry-blossom-theme busybee-theme bubbleberry-theme birds-of-paradise-plus-theme badwolf-theme apropospriate-theme anti-zenburn-theme ample-zen-theme ample-theme alect-themes afternoon-theme reveal-in-osx-finder pbcopy osx-trash osx-dictionary launchctl ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint indent-guide hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump f dash s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async))
+ '(powerline-height 20))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:background nil)))))
-
-;; 关闭文件滑动控件
-;; (scroll-bar-mode -1)
-
-;; 显示行号
-(global-linum-mode 1)
-
-;; 更改显示字体大小 16pt
-;; http://stackoverflow.com/questions/294664/how-to-set-the-font-size-in-emacs
-;; (set-face-attribute 'default nil :height 160)
-
-;; 快速打开配置文件
-(defun open-init-file()
-  (interactive)
-  (find-file "~/.spacemacs.d/init.el"))
-
-;; 最近打开文件
-(require 'recentf)
-(recentf-mode 1)
-(setq recentf-max-menu-item 10)
-
-;; 默认全屏
-(setq initial-frame-alist (quote ((fullscreen . maximized))))
-
-;; 文件修改自动加载
-(global-auto-revert-mode 1)
-
-;; dired-mode 重用buffer
-(put 'dired-find-alternate-file 'disabled nil)
-
-;; 延迟加载
-(with-eval-after-load 'dired
-  (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file))
-
-;; Evil Numbers
-;;(define-key evil-normal-state-map (kbd "C-c +") 'evil-numbers/inc-at-pt)
-;;(define-key evil-normal-state-map (kbd "C-c -") 'evil-numbers/dec-at-pt)
