@@ -2329,7 +2329,7 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command": "open /usr/local/Cellar/emacs-plus/HEAD-875cb83/Emacs.app"
+                                        "shell_command": "open /Applications/Emacs.app"
                                     }
                                 ],
                                 "type": "basic"
