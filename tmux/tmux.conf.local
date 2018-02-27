@@ -290,8 +290,8 @@ unbind ^x
 bind -r ^x next-window
 
 # add pane current path
-set -s pane-border-status top
-set -s pane-border-format "#[bold,fg=#dddddd,bg=#009aff]#{=-80:pane_current_path}"
+set -wg pane-border-status top
+set -wg pane-border-format "#[bold,fg=#dddddd,bg=#009aff]#{=-80:pane_current_path}"
 
 # 刷新间隔1s
 set-option -s status-interval 1
