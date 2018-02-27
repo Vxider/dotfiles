@@ -8,6 +8,7 @@
         {
             "complex_modifications": {
                 "parameters": {
+                    "basic.simultaneous_threshold_milliseconds": 50,
                     "basic.to_delayed_action_delay_milliseconds": 500,
                     "basic.to_if_alone_timeout_milliseconds": 1000,
                     "basic.to_if_held_down_threshold_milliseconds": 500
@@ -236,6 +237,7 @@
         {
             "complex_modifications": {
                 "parameters": {
+                    "basic.simultaneous_threshold_milliseconds": 50,
                     "basic.to_delayed_action_delay_milliseconds": 500,
                     "basic.to_if_alone_timeout_milliseconds": 1000,
                     "basic.to_if_held_down_threshold_milliseconds": 500
@@ -2625,32 +2627,6 @@
                         ]
                     },
                     {
-                        "description": "Post Escape if Command_R is pressed alone.",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "right_command",
-                                    "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "right_command"
-                                    }
-                                ],
-                                "to_if_alone": [
-                                    {
-                                        "key_code": "escape"
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
                         "description": "Post CAPS_LOCK if Shift_R is pressed alone.",
                         "manipulators": [
                             {
@@ -3308,40 +3284,7 @@
                     },
                     "ignore": false,
                     "manipulate_caps_lock_led": false,
-                    "simple_modifications": [
-                        {
-                            "from": {
-                                "key_code": "keypad_asterisk"
-                            },
-                            "to": {
-                                "key_code": "rewind"
-                            }
-                        },
-                        {
-                            "from": {
-                                "key_code": "keypad_hyphen"
-                            },
-                            "to": {
-                                "key_code": "volume_decrement"
-                            }
-                        },
-                        {
-                            "from": {
-                                "key_code": "keypad_plus"
-                            },
-                            "to": {
-                                "key_code": "volume_increment"
-                            }
-                        },
-                        {
-                            "from": {
-                                "key_code": "keypad_slash"
-                            },
-                            "to": {
-                                "key_code": "fastforward"
-                            }
-                        }
-                    ]
+                    "simple_modifications": []
                 },
                 {
                     "disable_built_in_keyboard_if_exists": false,

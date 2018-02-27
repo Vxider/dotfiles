@@ -1,8 +1,8 @@
-;;; packages.el --- vxider layer packages file for Spacemacs.
+;;; packages.el --- vxider-config layer packages file for Spacemacs.
 ;;
 ;; Copyright (c) 2012-2017 Sylvain Benner & Contributors
 ;;
-;; Author: 李冰 <vxider@Vxider-MacBook-Pro.local>
+;; Author: 李冰 <Vxider@Vxider-Mac-Pro>
 ;; URL: https://github.com/syl20bnr/spacemacs
 ;;
 ;; This file is not part of GNU Emacs.
@@ -18,20 +18,20 @@
 ;;
 ;;
 ;; Briefly, each package to be installed or configured by this layer should be
-;; added to `vxider-packages'. Then, for each package PACKAGE:
+;; added to `vxider-config-packages'. Then, for each package PACKAGE:
 ;;
 ;; - If PACKAGE is not referenced by any other Spacemacs layer, define a
-;;   function `vxider/init-PACKAGE' to load and initialize the package.
+;;   function `vxider-config/init-PACKAGE' to load and initialize the package.
 
 ;; - Otherwise, PACKAGE is already referenced by another Spacemacs layer, so
-;;   define the functions `vxider/pre-init-PACKAGE' and/or
-;;   `vxider/post-init-PACKAGE' to customize the package as it is loaded.
+;;   define the functions `vxider-config/pre-init-PACKAGE' and/or
+;;   `vxider-config/post-init-PACKAGE' to customize the package as it is loaded.
 
 ;;; Code:
 
-(defconst vxider-packages
-  '()
-  "The list of Lisp packages required by the vxider layer.
+(defconst vxider-config-packages
+  '(evil-terminal-cursor-changer)
+  "The list of Lisp packages required by the vxider-config layer.
 
 Each entry is either:
 
@@ -58,5 +58,21 @@ Each entry is either:
       - A list beginning with the symbol `recipe' is a melpa
         recipe.  See: https://github.com/milkypostman/melpa#recipe-format")
 
+
+(defun vxider-config/init-evil-terminal-cursor-changer()
+  "Initialize my package"
+  (use-package evil-terminal-cursor-changer))
+
+
+;; 初始化evil-terminal-cursor-changer
+(unless (display-graphic-p)
+  (require 'evil-terminal-cursor-changer)
+  (evil-terminal-cursor-changer-activate) ; or (etcc-on)
+  )
+
+;; 快速打开配置文件
+(defun open-init-file()
+  (interactive)
+  (find-file "~/.spacemacs.d/init.el"))
 
 ;;; packages.el ends here
