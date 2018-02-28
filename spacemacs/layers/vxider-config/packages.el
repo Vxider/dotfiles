@@ -30,49 +30,6 @@
 ;;; Code:
 
 (defconst vxider-config-packages
-  '(evil-terminal-cursor-changer)
-  "The list of Lisp packages required by the vxider-config layer.
-
-Each entry is either:
-
-1. A symbol, which is interpreted as a package to be installed, or
-
-2. A list of the form (PACKAGE KEYS...), where PACKAGE is the
-    name of the package to be installed or loaded, and KEYS are
-    any number of keyword-value-pairs.
-
-    The following keys are accepted:
-
-    - :excluded (t or nil): Prevent the package from being loaded
-      if value is non-nil
-
-    - :location: Specify a custom installation location.
-      The following values are legal:
-
-      - The symbol `elpa' (default) means PACKAGE will be
-        installed using the Emacs package manager.
-
-      - The symbol `local' directs Spacemacs to load the file at
-        `./local/PACKAGE/PACKAGE.el'
-
-      - A list beginning with the symbol `recipe' is a melpa
-        recipe.  See: https://github.com/milkypostman/melpa#recipe-format")
-
-
-(defun vxider-config/init-evil-terminal-cursor-changer()
-  "Initialize my package"
-  (use-package evil-terminal-cursor-changer))
-
-
-;; 初始化evil-terminal-cursor-changer
-(unless (display-graphic-p)
-  (require 'evil-terminal-cursor-changer)
-  (evil-terminal-cursor-changer-activate) ; or (etcc-on)
-  )
-
-;; 快速打开配置文件
-(defun open-init-file()
-  (interactive)
-  (find-file "~/.spacemacs.d/init.el"))
+  '())
 
 ;;; packages.el ends here
