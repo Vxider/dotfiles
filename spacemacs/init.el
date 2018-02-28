@@ -40,7 +40,7 @@
       helm
       better-defaults
       emacs-lisp
-      spechtlite-proxy
+      ;; spechtlite-proxy
       osx
       ;; themes-megapack
       vxider-config
@@ -313,10 +313,14 @@
   before packages are loaded. If you are unsure, you should try in setting them in
   `dotspacemacs/user-config' first."
 
-  (setq configuration-layer--elpa-archives
-        '(("melpa-cn" . "http://elpa.emacs-china.org/melpa/")
-          ("org-cn"   . "http://elpa.emacs-china.org/org/")
-          ("gnu-cn"   . "http://elpa.emacs-china.org/gnu/")))
+ ;; (setq configuration-layer--elpa-archives
+ ;;       '(("melpa-cn" . "http://elpa.emacs-china.org/melpa/")
+ ;;         ("org-cn"   . "http://elpa.emacs-china.org/org/")
+ ;;         ("gnu-cn"   . "http://elpa.emacs-china.org/gnu/")))
+
+   (setq my-proxy "127.0.0.1:9090")
+   (setq url-proxy-services `(("http" . ,my-proxy)
+                              ("https" . ,my-proxy)))
   )
 
 (defun dotspacemacs/user-config ()
@@ -328,11 +332,11 @@
   you should place your code here."
 
   (spacemacs/toggle-line-numbers-on)
-  (global-company-mode 1)
+  ;; (global-company-mode 1)
   (global-flycheck-mode 1)
-  (global-auto-revert-mode 1) ;;文件修改自动加载
+  ;;auto reload when file changes
+  (global-auto-revert-mode 1)
 
-  ;; 快速打开配置文件
   (defun open-init-file()
     (interactive)
     (find-file "~/.spacemacs.d/init.el"))
@@ -340,7 +344,7 @@
        (interactive)
        (find-file "~/.spacemacs.d/layers/vxider-config/packages.el"))
 
-  ;; 默认全屏
+  ;;fullscreen
   (setq initial-frame-alist (quote ((fullscreen . maximized))))
 )
 
@@ -351,10 +355,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(evil-want-Y-yank-to-eol nil)
  '(package-selected-packages
    (quote
-    (async ace-link ace-window aggressive-indent avy bind-key dash epl evil f git-commit goto-chg helm helm-core highlight hydra org-plus-contrib cherry-blossom-theme grandshell-theme eclim meghanada company web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc company-tern dash-functional tern coffee-mode ws-butler winum which-key web-mode volatile-highlights vi-tilde-fringe uuidgen use-package unfill toc-org tagedit spaceline smeargle slim-mode scss-mode sass-mode reveal-in-osx-finder restart-emacs rainbow-delimiters pug-mode popwin persp-mode pcre2el pbcopy paradox osx-trash osx-dictionary orgit org-bullets open-junk-file neotree mwim move-text mmm-mode markdown-toc magit-gitflow macrostep lorem-ipsum linum-relative link-hint less-css-mode launchctl indent-guide hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-gitignore helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag google-translate golden-ratio gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md fuzzy flyspell-correct-helm flycheck-pos-tip flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-terminal-cursor-changer evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu emmet-mode elisp-slime-nav dumb-jump company-web company-statistics column-enforce-mode clean-aindent-mode auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile adaptive-wrap ace-jump-helm-line ac-ispell))))
+    (meghanada company evil-terminal-cursor-changer eclim ws-butler winum which-key web-mode web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package unfill toc-org tagedit spaceline powerline smeargle slim-mode scss-mode sass-mode reveal-in-osx-finder restart-emacs rainbow-delimiters pug-mode popwin persp-mode pcre2el pbcopy paradox spinner osx-trash osx-dictionary orgit org-plus-contrib org-bullets open-junk-file neotree mwim move-text mmm-mode markdown-toc markdown-mode magit-gitflow macrostep lorem-ipsum livid-mode skewer-mode simple-httpd linum-relative link-hint less-css-mode launchctl json-mode json-snatcher json-reformat js2-refactor yasnippet multiple-cursors js2-mode js-doc indent-guide hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile helm-gitignore request helm-flx helm-descbinds helm-css-scss helm-ag haml-mode google-translate golden-ratio gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md flyspell-correct-helm flyspell-correct flycheck-pos-tip pos-tip flycheck pkg-info epl flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit magit magit-popup git-commit ghub let-alist with-editor evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight emmet-mode elisp-slime-nav dumb-jump f dash s diminish column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-dictionary auto-compile packed ace-link ace-jump-helm-line helm helm-core popup coffee-mode async aggressive-indent adaptive-wrap ace-window))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

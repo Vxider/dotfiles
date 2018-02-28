@@ -59,7 +59,7 @@ Each entry is either:
         recipe.  See: https://github.com/milkypostman/melpa#recipe-format")
 
 ;; Configure network proxy
-(setq my-proxy "127.0.0.1:9091")
+(setq my-proxy "127.0.0.1:9090")
 (defun show-proxy ()
   "Show http/https proxy."
   (interactive)
