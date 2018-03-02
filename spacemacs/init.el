@@ -357,7 +357,8 @@
 
   (global-flycheck-mode 1)
   (global-auto-revert-mode 1)
-  (add-hook 'after-init-hook #'fancy-battery-mode)
+
+  (setq scroll-margin 10)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
