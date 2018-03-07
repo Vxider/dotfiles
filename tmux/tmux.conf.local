@@ -269,8 +269,9 @@ bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
 set -gu prefix2
 unbind C-a
 unbind C-b
-set -g prefix `
-bind-key ` send-prefix
+unbind C-q
+set -g prefix C-q
+bind-key C-q send-prefix
 
 # 禁止窗口自动重命名
 set-option -g allow-rename off
@@ -282,10 +283,10 @@ set-option -g allow-rename off
 set-option -g repeat-time 200
 
 # C-]切换窗口
-unbind o
-unbind y
-bind -r o next-window
-bind -r y previous-window
+unbind ^h
+unbind ^l
+bind -r ^l next-window
+bind -r ^h previous-window
 
 # add pane current path
 # set -wg pane-border-status top
