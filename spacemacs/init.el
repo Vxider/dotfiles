@@ -56,7 +56,7 @@
      ;; org
      ;; spell-checking
      (shell :variables
-            shell-default-shell 'eshell
+            shell-default-shell 'ansi-term
             shell-default-position 'bottom
             shell-default-height 30
             )
@@ -67,6 +67,7 @@
      vxider-java
      vxider-c-c++
      vxider-shell
+     spacemacs-cmake-ide
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -200,7 +201,7 @@
    dotspacemacs-display-default-layout nil
    ;; If non nil then the last auto saved layouts are resume automatically upon
    ;; start. (default nil)
-   dotspacemacs-auto-resume-layouts t
+   dotspacemacs-auto-resume-layouts nil
    ;; Size (in MB) above which spacemacs will prompt to open the large file
    ;; literally to avoid performance issues. Opening a file literally means that
    ;; no major mode or minor modes are active. (default is 1)
@@ -283,12 +284,13 @@
    ;;                       text-mode
    ;;   :size-limit-kb 1000)
    ;; (default nil)
+   dotspacemacs-line-numbers 't
    ;; dotspacemacs-line-numbers 'relative
-   dotspacemacs-line-numbers '(:disabled-for-modes
-                               dired-mode
-                               doc-view-mode
-                               pdf-view-mode
-                               :relative t)
+   ;; dotspacemacs-line-numbers '(:disabled-for-modes
+   ;;                             dired-mode
+   ;;                             doc-view-mode
+   ;;                             pdf-view-mode
+   ;;                             :relative t)
 
    ;; Code folding method. Possible values are `evil' and `origami'.
    ;; (default 'evil)
@@ -357,8 +359,8 @@
 
   (global-flycheck-mode 1)
   (global-auto-revert-mode 1)
-
   (setq scroll-margin 10)
+  (global-set-key (kbd "s-[") 'dired-up-directory)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -420,7 +422,7 @@ static char *gnus-pointer[] = {
 \"###########.######\" };")) t)
  '(package-selected-packages
    (quote
-    (rainbow-mode rainbow-identifiers color-identifiers-mode darcula-theme clues-theme alect-themes pyim pyim-basedict pangu-spacing find-by-pinyin-dired ace-pinyin pinyinlib emoji-cheat-sheet-plus csv-mode xterm-color shell-pop multi-term eshell-z eshell-prompt-extras esh-help pdf-tools tablist git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter diff-hl disaster cmake-mode clang-format meghanada company evil-terminal-cursor-changer eclim ws-butler winum which-key web-mode web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package unfill toc-org tagedit spaceline powerline smeargle slim-mode scss-mode sass-mode reveal-in-osx-finder restart-emacs rainbow-delimiters pug-mode popwin persp-mode pcre2el pbcopy paradox spinner osx-trash osx-dictionary orgit org-plus-contrib org-bullets open-junk-file neotree mwim move-text mmm-mode markdown-toc markdown-mode magit-gitflow macrostep lorem-ipsum livid-mode skewer-mode simple-httpd linum-relative link-hint less-css-mode launchctl json-mode json-snatcher json-reformat js2-refactor yasnippet multiple-cursors js2-mode js-doc indent-guide hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile helm-gitignore request helm-flx helm-descbinds helm-css-scss helm-ag haml-mode google-translate golden-ratio gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md flyspell-correct-helm flyspell-correct flycheck-pos-tip pos-tip flycheck pkg-info epl flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit magit magit-popup git-commit ghub let-alist with-editor evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight emmet-mode elisp-slime-nav dumb-jump f dash s diminish column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-dictionary auto-compile packed ace-link ace-jump-helm-line helm helm-core popup coffee-mode async aggressive-indent adaptive-wrap ace-window)))
+    (company-irony irony cmake-ide levenshtein rainbow-mode rainbow-identifiers color-identifiers-mode darcula-theme clues-theme alect-themes pyim pyim-basedict pangu-spacing find-by-pinyin-dired ace-pinyin pinyinlib emoji-cheat-sheet-plus csv-mode xterm-color shell-pop multi-term eshell-z eshell-prompt-extras esh-help pdf-tools tablist git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter diff-hl disaster cmake-mode clang-format meghanada company evil-terminal-cursor-changer eclim ws-butler winum which-key web-mode web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package unfill toc-org tagedit spaceline powerline smeargle slim-mode scss-mode sass-mode reveal-in-osx-finder restart-emacs rainbow-delimiters pug-mode popwin persp-mode pcre2el pbcopy paradox spinner osx-trash osx-dictionary orgit org-plus-contrib org-bullets open-junk-file neotree mwim move-text mmm-mode markdown-toc markdown-mode magit-gitflow macrostep lorem-ipsum livid-mode skewer-mode simple-httpd linum-relative link-hint less-css-mode launchctl json-mode json-snatcher json-reformat js2-refactor yasnippet multiple-cursors js2-mode js-doc indent-guide hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile helm-gitignore request helm-flx helm-descbinds helm-css-scss helm-ag haml-mode google-translate golden-ratio gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md flyspell-correct-helm flyspell-correct flycheck-pos-tip pos-tip flycheck pkg-info epl flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit magit magit-popup git-commit ghub let-alist with-editor evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight emmet-mode elisp-slime-nav dumb-jump f dash s diminish column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-dictionary auto-compile packed ace-link ace-jump-helm-line helm helm-core popup coffee-mode async aggressive-indent adaptive-wrap ace-window)))
  '(vc-annotate-background "#404040")
  '(vc-annotate-color-map
    (quote

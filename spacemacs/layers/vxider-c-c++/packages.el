@@ -67,4 +67,7 @@ Each entry is either:
 (setq-default dotspacemacs-configuration-layers
               '((c-c++ :variables c-c++-enable-clang-support t)))
 
+;;(push '("c" "h") projectile-other-file-alist)
+;;(push '("cpp" "h") projectile-other-file-alist)
+;;(push '(other . "k&r") c-default-style)
 ;;; packages.el ends here
