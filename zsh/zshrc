@@ -7,6 +7,9 @@ export ZSH=~/.oh-my-zsh
 
 # install Theme
 source ~/.dotfiles/zsh/configs/theme.zsh
+source ~/.dotfiles/zsh/configs/color.zsh
+source ~/.dotfiles/zsh/configs/history.zsh
+source ~/.dotfiles/zsh/configs/keybindings.zsh
 
 # iterm2 shell integration
 source ~/.iterm2_shell_integration.zsh
@@ -34,10 +37,6 @@ alias docker_rm_all="docker rm -f \$(docker ps -a -f status=exited -q)"
 alias lscolors="for code ({000..255}) print -P -- \"\$code: %F{\$code}This is how your text would look like%f\""
 alias e="emacs"
 alias enw="emacs -nw"
-
-# key bindings
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
 
 # source local configuration
 source ~/.zshrc.local
