@@ -7,9 +7,6 @@ export ZSH=~/.oh-my-zsh
 
 # install Theme
 source ~/.dotfiles/zsh/configs/theme.zsh
-source ~/.dotfiles/zsh/configs/color.zsh
-source ~/.dotfiles/zsh/configs/history.zsh
-source ~/.dotfiles/zsh/configs/keybindings.zsh
 
 # iterm2 shell integration
 source ~/.iterm2_shell_integration.zsh
@@ -22,13 +19,28 @@ plugins=(git brew-cask colored-man osx autojump zsh-autosuggestions
 
 source $ZSH/oh-my-zsh.sh
 
-# Uncomment the following line to display red dots whilst waiting for completion.
-COMPLETION_WAITING_DOTS="false"
+# =============================================================================
+#                                  Configs
+# =============================================================================
 
-# Preferred editor for local and remote sessions
-export EDITOR='vim'
+COMPLETION_WAITING_DOTS="false" # Uncomment the following line to display red dots whilst waiting for completion.
 
-# Alias
+export EDITOR='vim' # Preferred editor for local and remote sessions
+
+## ===================History=====================
+setopt hist_ignore_all_dups inc_append_history
+HISTFILE=~/.log/zsh_history
+HISTSIZE=4096
+SAVEHIST=4096
+export ERL_AFLAGS="-kernel shell_history enabled"
+
+## ===================Colors======================
+autoload -U colors
+colors
+export LS_OPTIONS='--color=auto' # 如果没有指定，则自动选择颜色
+export CLICOLOR='Yes' #是否输出颜色
+
+## ===================Alias=======================
 alias protoc_gen="protoc -I=. --cpp_out=."
 alias cloc_noproto="cloc . --exclude-ext=pb.h,pb.cc"
 alias docker_rmi_untag="docker rmi \$(docker images | awk '/^<none>/ { print \$3}')"
@@ -38,5 +50,9 @@ alias lscolors="for code ({000..255}) print -P -- \"\$code: %F{\$code}This is ho
 alias e="emacs"
 alias enw="emacs -nw"
 
-# source local configuration
+## ================Keybindings====================
+# keybinding for history-substring-search
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+
 source ~/.zshrc.local
