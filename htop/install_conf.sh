@@ -1,1 +1,1 @@
-cp ~/.dotfiles/htop/htoprc ~/.config/htop/
+ln -fs ~/.dotfiles/htop/htoprc ~/.config/htop/
