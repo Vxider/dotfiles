@@ -30,7 +30,8 @@
 ;;; Code:
 
 (defconst vxider-config-packages
-  '(darcula-theme))
+  '(darcula-theme
+  ))
 
 ;;; Set font for Chinese
 ;;   (dolist (charset '(kana han symbol cjk-misc bopomofo))
@@ -39,35 +40,7 @@
 ;;                                          :size 20)))
 
 (defun vxider-config/init-carcula-theme()
-  (use-package darcula-theme))
+  (use-package darcula-theme)
+)
 
-(setq initial-frame-alist (quote ((fullscreen . maximized))))
-
-(defun fullscreen()
-  (interactive)
-  (let ((frame (selected-frame)))
-    (set-frame-width frame (display-pixel-width) nil 'pixelwise)
-    (set-frame-height frame (display-pixel-height) nil 'pixelwise)
-    (set-frame-position frame 0 0))
-  )
-
-(defun leftscreen()
-  (interactive)
-  (let ((frame (selected-frame))
-        (one-half-display-pixel-width (/ (display-pixel-width) 2)))
-    (set-frame-width frame one-half-display-pixel-width nil 'pixelwise)
-    ;; (set-frame-height frame (display-pixel-height) nil 'pixelwise)
-    (set-frame-position frame 0 0))
-  )
-;; (global-set-key (kbd "C-M-h") 'leftscreen)
-
-(defun rightscreen()
-  (interactive)
-  (let ((frame (selected-frame))
-        (one-half-display-pixel-width (/ (display-pixel-width) 2)))
-    (set-frame-width frame one-half-display-pixel-width nil 'pixelwise)
-    ;; (set-frame-height frame (display-pixel-height) nil 'pixelwise)
-    (set-frame-position frame one-half-display-pixel-width 0))
-  )
-;; (global-set-key (kbd "C-M-l") 'rightscreen)
 ;;; packages.el ends here
