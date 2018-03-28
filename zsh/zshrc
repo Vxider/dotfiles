@@ -44,15 +44,6 @@ alias lscolors="for code ({000..255}) print -P -- \"\$code: %F{\$code}This is ho
 alias e="emacs"
 alias enw="emacs -nw"
 
-## ================Functions====================
-function scptomacbook() {
-    scp -r $1 MacBook:~/Downloads/
-}
-
-function scptomacpro(){
-    scp -r $1 MacPro:~/Downloads/
-}
-
 ## ================Keybindings====================
 # keybinding for history-substring-search
 bindkey '^[[A' history-substring-search-up
