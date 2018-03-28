@@ -30,7 +30,7 @@
 ;;; Code:
 
 (defconst vxider-c-c++-packages
-  '()
+  '(cquery)
   "The list of Lisp packages required by the vxider-c-c++ layer.
 
 Each entry is either:
@@ -58,6 +58,8 @@ Each entry is either:
       - A list beginning with the symbol `recipe' is a melpa
         recipe.  See: https://github.com/milkypostman/melpa#recipe-format")
 
+(defun vxider-c-c++/init-cquery()
+  (use-package cquery))
 
 ;; set default header mode :C++ mode
 (setq-default dotspacemacs-configuration-layers
