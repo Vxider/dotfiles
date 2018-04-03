@@ -61,6 +61,9 @@ Each entry is either:
 (defun vxider-c-c++/init-cquery()
   (use-package cquery))
 
+;;cquery settings
+(setq cqueru-executable "/Users/Vxider/Dropbox/WorkSpace/Projects/Git/cquery/build")
+
 ;; set default header mode :C++ mode
 (setq-default dotspacemacs-configuration-layers
               '((c-c++ :variables

@@ -2564,7 +2564,7 @@
                                     },
                                     {
                                         "bundle_identifiers": [
-                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.microsoft\\.VSCode",
                                             "^com\\.jetbrains\\.CLion",
                                             "^com\\.jetbrains\\.intellij",
                                             "^com\\.googlecode\\.iterm2",
@@ -2608,7 +2608,7 @@
                                     },
                                     {
                                         "bundle_identifiers": [
-                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.microsoft\\.VSCode",
                                             "^com\\.jetbrains\\.CLion",
                                             "^com\\.jetbrains\\.intellij",
                                             "^com\\.googlecode\\.iterm2",
@@ -2646,11 +2646,11 @@
                         ]
                     },
                     {
-                        "description": "Post CAPS_LOCK if Shift_R is pressed alone.",
+                        "description": "Post CAPS_LOCK if right_option is pressed alone.",
                         "manipulators": [
                             {
                                 "from": {
-                                    "key_code": "right_shift",
+                                    "key_code": "right_option",
                                     "modifiers": {
                                         "optional": [
                                             "any"
@@ -2659,7 +2659,7 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "right_shift"
+                                        "key_code": "right_option"
                                     }
                                 ],
                                 "to_if_alone": [
@@ -3305,6 +3305,44 @@
                             },
                             "to": {
                                 "key_code": "left_control"
+                            }
+                        },
+                        {
+                            "from": {
+                                "key_code": "delete_or_backspace"
+                            },
+                            "to": {
+                                "key_code": "backslash"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "disable_built_in_keyboard_if_exists": false,
+                    "fn_function_keys": [],
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "is_pointing_device": false,
+                        "product_id": 569,
+                        "vendor_id": 1452
+                    },
+                    "ignore": false,
+                    "manipulate_caps_lock_led": true,
+                    "simple_modifications": [
+                        {
+                            "from": {
+                                "key_code": "caps_lock"
+                            },
+                            "to": {
+                                "key_code": "left_control"
+                            }
+                        },
+                        {
+                            "from": {
+                                "key_code": "backslash"
+                            },
+                            "to": {
+                                "key_code": "delete_or_backspace"
                             }
                         },
                         {
