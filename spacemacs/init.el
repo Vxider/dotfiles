@@ -47,6 +47,12 @@
      markdown
      git
      java
+     (auto-completion :variables
+                      auto-completion-return-key-behavior 'complete
+                      auto-completion-tab-key-behavior 'cycle
+                      auto-completion-complete-with-key-sequence "C-SPC"
+                      auto-completion-complete-with-key-sequence-delay 0.1
+                      auto-completion-private-snippets-directory nil)
      ;; c-c++
      python
      javascript
@@ -158,7 +164,7 @@
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
    dotspacemacs-default-font '("Monaco"
-                               :size 16
+                               :size 14
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -335,10 +341,11 @@
   before packages are loaded. If you are unsure, you should try in setting them in
   `dotspacemacs/user-config' first."
 
-  (setq my-proxy "127.0.0.1:9090")
-  (setq url-proxy-services `(("http" . ,my-proxy)
-                             ("https" . ,my-proxy)))
+  ;; (setq my-proxy "127.0.0.1:9090")
+  ;; (setq url-proxy-services `(("http" . ,my-proxy)
+  ;;                            ("https" . ,my-proxy)))
   (set-fontset-font t 'unicode "Apple Color Emoji" nil 'prepend)
+  ;; (global-unset-key (kbd "C-SPC"))
   )
 
 
@@ -360,8 +367,6 @@ you should place your code here."
   (setq scroll-margin 10)
   (global-set-key (kbd "s-[") 'dired-up-directory)
   (setq-default fill-column 120)
-  (setq-default dotspacemacs-configuration-layers '(
-                                                    (colors :variables colors-colorize-identifiers 'all)))
   (add-hook 'prog-mode-hook 'rainbow-mode) ;;start rainbow mode by default
   (realign-mode)
   (global-company-mode)
@@ -427,7 +432,7 @@ static char *gnus-pointer[] = {
 \"###########.######\" };")) t)
  '(package-selected-packages
    (quote
-    (lsp-mode cquery yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode dash-functional helm-pydoc cython-mode anaconda-mode pythonic sublimity writeroom-mode docker company-irony irony cmake-ide levenshtein rainbow-mode rainbow-identifiers color-identifiers-mode darcula-theme clues-theme alect-themes pyim pyim-basedict pangu-spacing find-by-pinyin-dired ace-pinyin pinyinlib emoji-cheat-sheet-plus csv-mode xterm-color shell-pop multi-term eshell-z eshell-prompt-extras esh-help pdf-tools tablist git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter diff-hl disaster cmake-mode clang-format meghanada company evil-terminal-cursor-changer eclim ws-butler winum which-key web-mode web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package unfill toc-org tagedit spaceline powerline smeargle slim-mode scss-mode sass-mode reveal-in-osx-finder restart-emacs rainbow-delimiters pug-mode popwin persp-mode pcre2el pbcopy paradox spinner osx-trash osx-dictionary orgit org-plus-contrib org-bullets open-junk-file neotree mwim move-text mmm-mode markdown-toc markdown-mode magit-gitflow macrostep lorem-ipsum livid-mode skewer-mode simple-httpd linum-relative link-hint less-css-mode launchctl json-mode json-snatcher json-reformat js2-refactor yasnippet multiple-cursors js2-mode js-doc indent-guide hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile helm-gitignore request helm-flx helm-descbinds helm-css-scss helm-ag haml-mode google-translate golden-ratio gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md flyspell-correct-helm flyspell-correct flycheck-pos-tip pos-tip flycheck pkg-info epl flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit magit magit-popup git-commit ghub let-alist with-editor evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight emmet-mode elisp-slime-nav dumb-jump f dash s diminish column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-dictionary auto-compile packed ace-link ace-jump-helm-line helm helm-core popup coffee-mode async aggressive-indent adaptive-wrap ace-window)))
+    (company-web ac-ispell helm-company helm-c-yasnippet fuzzy web-completion-data company-tern tern company-statistics company-emoji company-emacs-eclim company-anaconda auto-yasnippet auto-complete lsp-mode cquery yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode dash-functional helm-pydoc cython-mode anaconda-mode pythonic sublimity writeroom-mode docker company-irony irony cmake-ide levenshtein rainbow-mode rainbow-identifiers color-identifiers-mode darcula-theme clues-theme alect-themes pyim pyim-basedict pangu-spacing find-by-pinyin-dired ace-pinyin pinyinlib emoji-cheat-sheet-plus csv-mode xterm-color shell-pop multi-term eshell-z eshell-prompt-extras esh-help pdf-tools tablist git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter diff-hl disaster cmake-mode clang-format meghanada company evil-terminal-cursor-changer eclim ws-butler winum which-key web-mode web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package unfill toc-org tagedit spaceline powerline smeargle slim-mode scss-mode sass-mode reveal-in-osx-finder restart-emacs rainbow-delimiters pug-mode popwin persp-mode pcre2el pbcopy paradox spinner osx-trash osx-dictionary orgit org-plus-contrib org-bullets open-junk-file neotree mwim move-text mmm-mode markdown-toc markdown-mode magit-gitflow macrostep lorem-ipsum livid-mode skewer-mode simple-httpd linum-relative link-hint less-css-mode launchctl json-mode json-snatcher json-reformat js2-refactor yasnippet multiple-cursors js2-mode js-doc indent-guide hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile helm-gitignore request helm-flx helm-descbinds helm-css-scss helm-ag haml-mode google-translate golden-ratio gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md flyspell-correct-helm flyspell-correct flycheck-pos-tip pos-tip flycheck pkg-info epl flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit magit magit-popup git-commit ghub let-alist with-editor evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight emmet-mode elisp-slime-nav dumb-jump f dash s diminish column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-dictionary auto-compile packed ace-link ace-jump-helm-line helm helm-core popup coffee-mode async aggressive-indent adaptive-wrap ace-window)))
  '(vc-annotate-background "#404040")
  '(vc-annotate-color-map
    (quote
