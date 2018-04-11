@@ -25,12 +25,14 @@ let g:spacevim_colorscheme_bg = 'dark'
 
 " SpaceVim Layers: {{{
 call SpaceVim#layers#load('lang#c')
+call SpaceVim#layers#load('lang#markdown')
 call SpaceVim#layers#load('colorscheme')
 call SpaceVim#layers#load('autocomplete')
 " }}}
 
 set ignorecase
 set scrolloff=10
+let mapleader = ","
 
 "设置VIM细光标
 ""let &t_SI = "\<Esc>]1337;CursorShape=1\x7"

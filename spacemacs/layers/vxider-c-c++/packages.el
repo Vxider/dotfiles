@@ -62,7 +62,7 @@ Each entry is either:
   (use-package cquery))
 
 ;;cquery settings
-(setq cqueru-executable "/Users/Vxider/Dropbox/WorkSpace/Projects/Git/cquery/build")
+(setq cqueru-executable "/usr/local/Cellar/cquery/v20180302/bin/cquery")
 
 ;; set default header mode :C++ mode
 (setq-default dotspacemacs-configuration-layers
