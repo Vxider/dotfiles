@@ -31,6 +31,7 @@ call SpaceVim#layers#load('autocomplete')
 " }}}
 
 set ignorecase
+set wrap
 set scrolloff=10
 let mapleader = ","
 
