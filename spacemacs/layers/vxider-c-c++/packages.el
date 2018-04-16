@@ -62,12 +62,15 @@ Each entry is either:
         recipe.  See: https://github.com/milkypostman/melpa#recipe-format")
 
 (defun vxider-c-c++/init-cquery()
-  (use-package cquery))
+  (use-package cquery
+    :commands lsp-cquery-enable
+    :init (add-hook 'c-mode-common-hook #'cquery//enable)
+    ))
 (defun vxider-c-c++/init-lsp-mode()
   (use-package lsp-mode))
 
 ;;cquery settings
-(setq cqueru-executable "/usr/local/Cellar/cquery/v20180302/bin/cquery")
+(setq-default cqueru-executable "/usr/local/Cellar/cquery/20180302/bin")
 
 ;; set default header mode :C++ mode
 (setq-default dotspacemacs-configuration-layers
@@ -77,6 +80,10 @@ Each entry is either:
 (setq-default dotspacemacs-configuration-layers
               '((c-c++ :variables c-c++-enable-clang-support t)))
 
+(defun cquery//enable ()
+  (condition-case nil
+      (lsp-cquery-enable)
+    (user-error nil)))
 ;;(push '("c" "h") projectile-other-file-alist)
 ;;(push '("cpp" "h") projectile-other-file-alist)
 ;;(push '(other . "k&r") c-default-style)

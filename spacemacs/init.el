@@ -364,24 +364,30 @@ you should place your code here."
     (interactive)
     (find-file "~/.spacemacs.d/layers/vxider-config/packages.el"))
 
-  (setq scroll-margin 10)
-  ;;(global-set-key (kbd "s-[") 'dired-up-directory)
+  (setq-default scroll-margin 10)
+  (global-set-key (kbd "s-[") 'dired-up-directory)
   ;;(global-set-key (kbd "u") 'dired-up-directory)
-  (setq-default fill-column 120)
-  (setq display-line-numbers 'absolute)
-  (setq toggle-word-wrap)
-  (add-hook 'prog-mode-hook 'rainbow-mode) ;;start rainbow mode by default
+  (add-hook 'prog-mode-hook
+            (lambda()
+              (fci-mode t)
+              (rainbow-mode t)
+              (setq fill-column 120)
+              (display-line-numbers-mode 'absolute)
+              (spacemacs/toggle-visual-line-navigation-on)
+              (auto-fill-mode t)))
+
+  (add-hook 'text-mode-hook
+            (lambda()
+              (fci-mode t)
+              (rainbow-mode t)
+              (setq fill-column 120)
+              (spacemacs/toggle-visual-line-navigation-on)
+              (auto-fill-mode t)))
+
   (realign-mode)
   (global-company-mode)
-<<<<<<< Updated upstream
-  (setq display-line-numbers 'absolute)
-  ;;(spacemacs/toggle-fill-column-indicator-on)
-=======
-  (spacemacs/toggle-fill-column-indicator-on)
-  ;;(spacemacs/toggle-visual-line-navigation-on)
   (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
   (define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
->>>>>>> Stashed changes
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
