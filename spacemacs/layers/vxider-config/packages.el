@@ -31,6 +31,7 @@
 
 (defconst vxider-config-packages
   '(darcula-theme
+    monokai-theme
   ))
 
 ;;; Set font for Chinese
@@ -43,4 +44,7 @@
   (use-package darcula-theme)
 )
 
+(defun vxider-config/init-monokai-theme()
+  (use-package monokai-theme)
+)
 ;;; packages.el ends here
