@@ -370,7 +370,8 @@ you should place your code here."
   (add-hook 'prog-mode-hook 'rainbow-mode) ;;start rainbow mode by default
   (realign-mode)
   (global-company-mode)
-  (spacemacs/toggle-fill-column-indicator-on)
+  (setq display-line-numbers 'absolute)
+  ;;(spacemacs/toggle-fill-column-indicator-on)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
