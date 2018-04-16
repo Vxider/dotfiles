@@ -30,7 +30,10 @@
 ;;; Code:
 
 (defconst vxider-c-c++-packages
-  '(cquery)
+  '(
+    lsp-mode
+    cquery
+    )
   "The list of Lisp packages required by the vxider-c-c++ layer.
 
 Each entry is either:
@@ -60,6 +63,8 @@ Each entry is either:
 
 (defun vxider-c-c++/init-cquery()
   (use-package cquery))
+(defun vxider-c-c++/init-lsp-mode()
+  (use-package lsp-mode))
 
 ;;cquery settings
 (setq cqueru-executable "/usr/local/Cellar/cquery/v20180302/bin/cquery")

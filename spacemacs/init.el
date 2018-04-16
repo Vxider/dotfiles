@@ -59,9 +59,9 @@
      pdf-tools
      csv
      emoji
-     chinese
+     ;;chinese
      ;; org
-     ;; spell-checking
+     spell-checking
      (shell :variables
             shell-default-shell 'ansi-term
             shell-default-position 'bottom
@@ -75,7 +75,6 @@
      vxider-java
      vxider-c-c++
      vxider-shell
-     spacemacs-cmake-ide
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -156,6 +155,7 @@
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(
+                         monokai
                          darcula
                          spacemacs-dark
                          spacemacs-light)
@@ -365,13 +365,23 @@ you should place your code here."
     (find-file "~/.spacemacs.d/layers/vxider-config/packages.el"))
 
   (setq scroll-margin 10)
-  (global-set-key (kbd "s-[") 'dired-up-directory)
+  ;;(global-set-key (kbd "s-[") 'dired-up-directory)
+  ;;(global-set-key (kbd "u") 'dired-up-directory)
   (setq-default fill-column 120)
+  (setq display-line-numbers 'absolute)
+  (setq toggle-word-wrap)
   (add-hook 'prog-mode-hook 'rainbow-mode) ;;start rainbow mode by default
   (realign-mode)
   (global-company-mode)
+<<<<<<< Updated upstream
   (setq display-line-numbers 'absolute)
   ;;(spacemacs/toggle-fill-column-indicator-on)
+=======
+  (spacemacs/toggle-fill-column-indicator-on)
+  ;;(spacemacs/toggle-visual-line-navigation-on)
+  (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
+  (define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
+>>>>>>> Stashed changes
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -383,6 +393,9 @@ you should place your code here."
  ;; If there is more than one, they won't work right.
  '(ansi-color-names-vector
    ["#000000" "#db4334" "#60a060" "#dc7700" "#00a2f5" "#da26ce" "#1ba1a1" "#b2af95"])
+ '(custom-safe-themes
+   (quote
+    ("c3d4af771cbe0501d5a865656802788a9a0ff9cf10a7df704ec8b8ef69017c68" default)))
  '(diary-entry-marker (quote font-lock-variable-name-face))
  '(emms-mode-line-icon-image-cache
    (quote
@@ -433,7 +446,7 @@ static char *gnus-pointer[] = {
 \"###########.######\" };")) t)
  '(package-selected-packages
    (quote
-    (company-c-headers company-web ac-ispell helm-company helm-c-yasnippet fuzzy web-completion-data company-tern tern company-statistics company-emoji company-emacs-eclim company-anaconda auto-yasnippet auto-complete lsp-mode cquery yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode dash-functional helm-pydoc cython-mode anaconda-mode pythonic sublimity writeroom-mode docker company-irony irony cmake-ide levenshtein rainbow-mode rainbow-identifiers color-identifiers-mode darcula-theme clues-theme alect-themes pyim pyim-basedict pangu-spacing find-by-pinyin-dired ace-pinyin pinyinlib emoji-cheat-sheet-plus csv-mode xterm-color shell-pop multi-term eshell-z eshell-prompt-extras esh-help pdf-tools tablist git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter diff-hl disaster cmake-mode clang-format meghanada company evil-terminal-cursor-changer eclim ws-butler winum which-key web-mode web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package unfill toc-org tagedit spaceline powerline smeargle slim-mode scss-mode sass-mode reveal-in-osx-finder restart-emacs rainbow-delimiters pug-mode popwin persp-mode pcre2el pbcopy paradox spinner osx-trash osx-dictionary orgit org-plus-contrib org-bullets open-junk-file neotree mwim move-text mmm-mode markdown-toc markdown-mode magit-gitflow macrostep lorem-ipsum livid-mode skewer-mode simple-httpd linum-relative link-hint less-css-mode launchctl json-mode json-snatcher json-reformat js2-refactor yasnippet multiple-cursors js2-mode js-doc indent-guide hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile helm-gitignore request helm-flx helm-descbinds helm-css-scss helm-ag haml-mode google-translate golden-ratio gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md flyspell-correct-helm flyspell-correct flycheck-pos-tip pos-tip flycheck pkg-info epl flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit magit magit-popup git-commit ghub let-alist with-editor evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight emmet-mode elisp-slime-nav dumb-jump f dash s diminish column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-dictionary auto-compile packed ace-link ace-jump-helm-line helm helm-core popup coffee-mode async aggressive-indent adaptive-wrap ace-window)))
+    (monokai-theme company-c-headers company-web ac-ispell helm-company helm-c-yasnippet fuzzy web-completion-data company-tern tern company-statistics company-emoji company-emacs-eclim company-anaconda auto-yasnippet auto-complete lsp-mode cquery yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode dash-functional helm-pydoc cython-mode anaconda-mode pythonic sublimity writeroom-mode docker company-irony irony cmake-ide levenshtein rainbow-mode rainbow-identifiers color-identifiers-mode darcula-theme clues-theme alect-themes pyim pyim-basedict pangu-spacing find-by-pinyin-dired ace-pinyin pinyinlib emoji-cheat-sheet-plus csv-mode xterm-color shell-pop multi-term eshell-z eshell-prompt-extras esh-help pdf-tools tablist git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter diff-hl disaster cmake-mode clang-format meghanada company evil-terminal-cursor-changer eclim ws-butler winum which-key web-mode web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package unfill toc-org tagedit spaceline powerline smeargle slim-mode scss-mode sass-mode reveal-in-osx-finder restart-emacs rainbow-delimiters pug-mode popwin persp-mode pcre2el pbcopy paradox spinner osx-trash osx-dictionary orgit org-plus-contrib org-bullets open-junk-file neotree mwim move-text mmm-mode markdown-toc markdown-mode magit-gitflow macrostep lorem-ipsum livid-mode skewer-mode simple-httpd linum-relative link-hint less-css-mode launchctl json-mode json-snatcher json-reformat js2-refactor yasnippet multiple-cursors js2-mode js-doc indent-guide hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile helm-gitignore request helm-flx helm-descbinds helm-css-scss helm-ag haml-mode google-translate golden-ratio gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md flyspell-correct-helm flyspell-correct flycheck-pos-tip pos-tip flycheck pkg-info epl flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit magit magit-popup git-commit ghub let-alist with-editor evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight emmet-mode elisp-slime-nav dumb-jump f dash s diminish column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-dictionary auto-compile packed ace-link ace-jump-helm-line helm helm-core popup coffee-mode async aggressive-indent adaptive-wrap ace-window)))
  '(vc-annotate-background "#404040")
  '(vc-annotate-color-map
    (quote
