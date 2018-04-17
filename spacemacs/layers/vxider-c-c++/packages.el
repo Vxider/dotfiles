@@ -34,32 +34,7 @@
     lsp-mode
     cquery
     )
-  "The list of Lisp packages required by the vxider-c-c++ layer.
-
-Each entry is either:
-
-1. A symbol, which is interpreted as a package to be installed, or
-
-2. A list of the form (PACKAGE KEYS...), where PACKAGE is the
-    name of the package to be installed or loaded, and KEYS are
-    any number of keyword-value-pairs.
-
-    The following keys are accepted:
-
-    - :excluded (t or nil): Prevent the package from being loaded
-      if value is non-nil
-
-    - :location: Specify a custom installation location.
-      The following values are legal:
-
-      - The symbol `elpa' (default) means PACKAGE will be
-        installed using the Emacs package manager.
-
-      - The symbol `local' directs Spacemacs to load the file at
-        `./local/PACKAGE/PACKAGE.el'
-
-      - A list beginning with the symbol `recipe' is a melpa
-        recipe.  See: https://github.com/milkypostman/melpa#recipe-format")
+  )
 
 (defun vxider-c-c++/init-cquery()
   (use-package cquery
@@ -71,14 +46,10 @@ Each entry is either:
 
 ;;cquery settings
 (setq-default cqueru-executable "/usr/local/Cellar/cquery/20180302/bin")
+(setq-default company-transformers nil company-lsp-async t company-lsp-cache-candidates nil)
+(setq-default cquery-sem-highlight-method 'font-lock)
+;; alternatively, (setq cquery-sem-highlight-method 'overlay)
 
-;; set default header mode :C++ mode
-(setq-default dotspacemacs-configuration-layers
-              '((c-c++ :variables
-                       c-c++-default-mode-for-headers 'c++-mode)))
-;; enable clang support
-(setq-default dotspacemacs-configuration-layers
-              '((c-c++ :variables c-c++-enable-clang-support t)))
 
 (defun cquery//enable ()
   (condition-case nil

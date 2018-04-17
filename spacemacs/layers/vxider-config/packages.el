@@ -30,21 +30,9 @@
 ;;; Code:
 
 (defconst vxider-config-packages
-  '(darcula-theme
-    monokai-theme
-  ))
+  '(monokai-theme
+    ))
 
-;;; Set font for Chinese
-;;   (dolist (charset '(kana han symbol cjk-misc bopomofo))
-;;     (set-fontset-font (frame-parameter nil 'font)
-;;                       charset (font-spec :family "PingFang SC"
-;;                                          :size 20)))
+(defun vxider-config/init-monokai-theme())
 
-(defun vxider-config/init-carcula-theme()
-  (use-package darcula-theme)
-)
-
-(defun vxider-config/init-monokai-theme()
-  (use-package monokai-theme)
-)
 ;;; packages.el ends here
