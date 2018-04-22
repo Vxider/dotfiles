@@ -15,8 +15,7 @@
 ;; a new layer:
 ;;
 ;;   SPC h SPC layers RET
-;;
-;;
+;; ;;
 ;; Briefly, each package to be installed or configured by this layer should be
 ;; added to `setup-dired-packages'. Then, for each package PACKAGE:
 ;;
@@ -33,16 +32,41 @@
   '(
     dired-icon
     dired-collapse
+    (dired :location built-in)
+    ;;dired-x
     ;;dired-rainbow
     ))
 
 (defun setup-dired/init-dired-icon())
 (defun setup-dired/init-dired-collapse())
 
-(with-eval-after-load 'dired()
-                      (global-set-key (kbd "s-[") 'dired-up-directory)
-                      (add-hook 'dired-mode-hook 'dired-collapse-mode)
-                      (when (display-graphic-p) ;; GUI version
-                        (add-hook 'dired-mode-hook 'dired-icon-mode))
-                      )
+(defun setup-dired/post-init-dired()
+;;      ;;(setq-default dired-omit-files-p t)  ; Don't show hidden files by default
+;;      ;;(setq dired-omit-files (concat dired-omit-files "\\|^\\..+$\\|\\.pyc$"))
+;;      ;;(setq diredp-hide-details-initially-flag nil)
+;;;;      (define-key evil-normal-state-map (kbd "SPC p D") 'projectile-dired)
+;;;;      (define-key evil-normal-state-map (kbd "SPC f j") 'dired-jump)
+;;;;      (add-hook 'dired-mode-hook 'dired-collapse-mode)
+;;      (when (display-graphic-p) (add-hook 'dired-mode-hook 'dired-icon-mode))
+;;;;      (define-key dired-mode-map (kbd "f" ) 'helm-find-files)
+;;      ;;(define-key dired-mode-map (kbd "h" ) 'diredp-up-directory-reuse-dir-buffer)
+;;      ;;(define-key dired-mode-map (kbd "l" ) 'diredp-find-file-reuse-dir-buffer)
+;;      ;;(define-key dired-mode-map (kbd "I" ) 'setup-dired/dired-omit-switch)
+;;      ;;(define-key dired-mode-map (kbd "gg") 'setup-dired/dired-back-to-top)
+;;      ;;(define-key dired-mode-map (kbd "G" ) 'setup-dired/dired-jump-to-bottom)
+    (define-key dired-mode-map (kbd "h" ) 'dired-up-directory)
+    (define-key dired-mode-map (kbd "l" ) 'dired-find-file)
+      )
+
+;;(defun setup-dired/init-dired+())
+;;(defun setup-dired/post-init-dired-x()
+
+(with-eval-after-load 'dired
+                      ;;(add-hook 'dired-mode-hook 'setup-dired/dired-omit-caller)
+                      ;;(advice-add 'spacemacs/find-dotfile :around 'setup-dired/find-dotfile)
+                      (define-key dired-mode-map (kbd "h" ) 'dired-up-directory)
+                      (define-key dired-mode-map (kbd "l" ) 'dired-find-file))
+
+;;(evilified-state-evilify dired-mode dired-mode-map)
+
 ;;; packages.el ends here

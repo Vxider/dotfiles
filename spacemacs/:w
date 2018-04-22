@@ -49,6 +49,8 @@
      (auto-completion :variables
                       auto-completion-return-key-behavior 'complete
                       auto-completion-tab-key-behavior 'cycle
+                      auto-completion-complete-with-key-sequence "jk"
+                      auto-completion-complete-with-key-sequence-delay 0.1
                       auto-completion-enable-help-tooltip t
                       auto-completion-enable-sort-by-usage t
                       auto-completion-private-snippets-directory nil)
@@ -71,10 +73,10 @@
             )
      syntax-checking
      realign-mode
-     ;;dired-plus
-     ;;dired-x
-     setup-dired
+     dired+
+     dired-x
      setup-neotree
+     setup-dired
      version-control
      vxider-config
      vxider-terminal
@@ -405,6 +407,7 @@ you should place your code here."
   (global-company-mode)
 ;;  (define-key evil-normal-state-map (kbd "C-p") 'lsp-ui-peek-jump-forward)
 ;;  (define-key evil-normal-state-map (kbd "C-t") 'lsp-ui-peek-jump-backward)
+
 )
 
 ;; Do not write anything past this comment. This is where Emacs will

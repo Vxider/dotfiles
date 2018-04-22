@@ -30,11 +30,9 @@
 ;;; Code:
 
 (defconst vxider-c-c++-packages
-  '(
-    lsp-mode
-    cquery
-    )
-  )
+  '(lsp-mode
+    cquery)
+)
 
 (defun vxider-c-c++/init-cquery()
   (use-package cquery
@@ -49,7 +47,6 @@
 (setq-default company-transformers nil company-lsp-async t company-lsp-cache-candidates nil)
 (setq-default cquery-sem-highlight-method 'font-lock)
 ;; alternatively, (setq cquery-sem-highlight-method 'overlay)
-
 
 (defun cquery//enable ()
   (condition-case nil

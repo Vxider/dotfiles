@@ -56,6 +56,14 @@ mode won't activate in that window."
   :group 'realign-mode
   :type '(list function))
 
+(with-eval-after-load 'realign-mode
+  (defun amos-special-window-p (window)
+    (let* ((buffer (window-buffer window))
+           (buffname (string-trim (buffer-name buffer))))
+      (or (equal buffname "*neotree*")
+          (equal (with-current-buffer buffer major-mode) 'pdf-view-mode))))
+  (push #'amos-special-window-p realign-ignore-window-predicates))
+
 (defcustom realign-hooks
   nil
   "Hooks to run every time window is realigned."

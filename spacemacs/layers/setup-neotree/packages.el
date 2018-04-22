@@ -34,7 +34,7 @@
   '())
 
 (with-eval-after-load 'neotree()
-                      (setq neo-smart-open t
+                      (setq neo-smart-open nil
                             neo-toggle-window-keep-p t
                             neo-force-change-root t
                             projectile-switch-project-action 'neotree-projectile-action
