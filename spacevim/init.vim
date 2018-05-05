@@ -27,6 +27,8 @@ let g:spacevim_relativenumber = 0
 " SpaceVim Layers: {{{
 call SpaceVim#layers#load('lang#c')
 call SpaceVim#layers#load('lang#markdown')
+call SpaceVim#layers#load('lang#java')
+call SpaceVim#layers#load('lang#python')
 call SpaceVim#layers#load('colorscheme')
 call SpaceVim#layers#load('autocomplete')
 call SpaceVim#layers#load('unite')
