@@ -31,27 +31,34 @@
 
 (defconst vxider-c-c++-packages
   '(lsp-mode
-    cquery)
+    ;;cquery
+    flycheck-clang-tidy)
 )
 
-(defun vxider-c-c++/init-cquery()
-  (use-package cquery
-    :commands lsp-cquery-enable
-    :init (add-hook 'c-mode-common-hook #'cquery//enable)
-    ))
+;;(defun vxider-c-c++/init-cquery()
+;;  (use-package cquery
+;;    :commands lsp-cquery-enable
+;;    :init (add-hook 'c-mode-common-hook #'cquery//enable)
+;;    ))
+
 (defun vxider-c-c++/init-lsp-mode()
   (use-package lsp-mode))
+(defun vxider-c-c++/init-flycheck-clang-tidy()
+  (use-package flycheck-clang-tidy))
 
 ;;cquery settings
-(setq-default cqueru-executable "/usr/local/Cellar/cquery/20180302/bin")
-(setq-default company-transformers nil company-lsp-async t company-lsp-cache-candidates nil)
-(setq-default cquery-sem-highlight-method 'font-lock)
+;;(setq-default cqueru-executable "/usr/local/Cellar/cquery/20180302/bin")
+;;(setq-default company-transformers nil company-lsp-async t company-lsp-cache-candidates nil)
+;;(setq-default cquery-sem-highlight-method 'font-lock)
 ;; alternatively, (setq cquery-sem-highlight-method 'overlay)
 
-(defun cquery//enable ()
-  (condition-case nil
-      (lsp-cquery-enable)
-    (user-error nil)))
+(eval-after-load 'flycheck
+  '(add-hook 'flycheck-mode-hook #'flycheck-clang-tidy-setup))
+
+;;(defun cquery//enable ()
+;;  (condition-case nil
+;;      (lsp-cquery-enable)
+;;    (user-error nil)))
 ;;(push '("c" "h") projectile-other-file-alist)
 ;;(push '("cpp" "h") projectile-other-file-alist)
 ;;(push '(other . "k&r") c-default-style)
