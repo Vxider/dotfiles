@@ -41,7 +41,7 @@
      emacs-lisp
      osx
      ;; themes-megapack
-     colors
+     (colors :variables colors-enable-nyan-cat-progress-bar,(display-graphic-p))
      html
      markdown
      git
@@ -51,11 +51,11 @@
                       auto-completion-tab-key-behavior 'cycle
                       auto-completion-enable-help-tooltip t
                       auto-completion-enable-sort-by-usage t
-                      ;;auto-completion-complete-with-key-sequence '"jk"
                       auto-completion-private-snippets-directory nil)
      (c-c++ :variables
             c-c++-default-mode-for-headers 'c++-mode
             c-c++-enable-clang-support t
+            flycheck-clang-language-standard 'c++11
             )
      cscope
      (python :variables python-enable-yapf-format-on-save t)
@@ -389,14 +389,13 @@ you should place your code here."
     (find-file "~/.spacemacs.d/layers/vxider-config/packages.el"))
 
   (setq-default scroll-margin 10)
+  (setq-default tab-width 4)
   (setq ispell-program-name "/usr/local/Cellar/ispell/3.4.00/bin/ispell")
-  (setq flycheck-clang-tidy-executable "/usr/local/opt/llvm/bin/clang-tidy")
 
   (add-hook 'company-mode-hook
             (lambda()
               (global-unset-key (kbd "C-SPC"))
               (global-set-key (kbd "C-SPC") 'company-complete)
-              (global-set-key (kbd "S-SPC") 'company-complete)
               ))
 
   (add-hook 'prog-mode-hook
@@ -418,11 +417,13 @@ you should place your code here."
 
   (realign-mode)
   (global-company-mode)
+  (global-flycheck-mode)
+
+  (define-key evil-normal-state-map (kbd "C-j") 'ff-find-related-file)
+
 ;;  (define-key evil-normal-state-map (kbd "C-p") 'lsp-ui-peek-jump-forward)
 ;;  (define-key evil-normal-state-map (kbd "C-t") 'lsp-ui-peek-jump-backward)
 
-  (global-set-key (kbd "M-s-l") 'clang-format-buffer)
-  (setq clang-format-style-option "llvm")
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -460,7 +461,7 @@ static char *note[] = {
 \"######....\",
 \"#######..#\" };")))
  '(evil-want-Y-yank-to-eol nil)
- '(fci-rule-color "#404040" t)
+ '(fci-rule-color "#404040")
  '(gnus-logo-colors (quote ("#4c8383" "#bababa")) t)
  '(gnus-mode-line-image-cache
    (quote
