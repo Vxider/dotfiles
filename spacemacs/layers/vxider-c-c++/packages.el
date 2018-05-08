@@ -45,8 +45,8 @@
 (defun vxider-c-c++/init-lsp-mode()
   (use-package lsp-mode))
 (defun vxider-c-c++/init-flycheck-clang-tidy()
-  (use-package flycheck-clang-tidy
-    :config (setq flycheck-clang-tidy-executable "/usr/local/opt/llvm/bin/clang-tidy")))
+  (use-package flycheck-clang-tidy))
+    ;; :config (setq flycheck-clang-tidy-executable "/usr/local/opt/llvm/bin/clang-tidy")
 
 ;;cquery settings
 ;;(setq-default cquery-executable "/usr/local/Cellar/cquery/20180302/bin/cquery")
