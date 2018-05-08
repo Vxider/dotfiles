@@ -424,7 +424,7 @@ you should place your code here."
 ;;  (define-key evil-normal-state-map (kbd "C-p") 'lsp-ui-peek-jump-forward)
 ;;  (define-key evil-normal-state-map (kbd "C-t") 'lsp-ui-peek-jump-backward)
 
-  (load-file "~/emacs.local.el")
+  (load-file "~/.emacs.local.el")
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
