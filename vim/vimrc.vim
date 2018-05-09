@@ -15,6 +15,8 @@ au BufWrite /private/etc/pw.* set nowritebackup nobackup
 set nu!
 set ai!
 
+set scrolloff=10
+
 "设置缩进
 set autoindent
 set smartindent

@@ -41,7 +41,8 @@
      emacs-lisp
      osx
      ;; themes-megapack
-     (colors :variables colors-enable-nyan-cat-progress-bar,(display-graphic-p))
+     ;;(colors :variables colors-enable-nyan-cat-progress-bar,(display-graphic-p))
+     colors
      html
      markdown
      git
@@ -419,6 +420,11 @@ you should place your code here."
   ;;(realign-mode)
   (global-company-mode)
   (global-flycheck-mode)
+  (display-line-numbers-mode 'absolute)
+
+  (with-eval-after-load 'evil
+    (global-unset-key (kbd "M-l"))
+    (global-unset-key (kbd "C-SPC")))
 
   (define-key evil-normal-state-map (kbd "C-j") 'ff-find-related-file)
 

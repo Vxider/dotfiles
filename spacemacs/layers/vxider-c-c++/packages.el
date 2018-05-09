@@ -58,7 +58,7 @@
   '(add-hook 'flycheck-mode-hook #'flycheck-clang-tidy-setup))
 
 (with-eval-after-load 'clang-format
-  (global-set-key (kbd "M-s-l") 'clang-format-buffer)
+  (global-set-key (kbd "s-M-l") 'clang-format-buffer)
   (setq clang-format-style-option "llvm"))
 
 (defun cquery//enable ()
