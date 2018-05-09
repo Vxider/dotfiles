@@ -390,7 +390,7 @@ you should place your code here."
 
   (setq-default scroll-margin 10)
   (setq-default tab-width 4)
-  (setq ispell-program-name "/usr/local/Cellar/ispell/3.4.00/bin/ispell")
+  ;;(setq ispell-program-name "/usr/local/Cellar/ispell/3.4.00/bin/ispell")
 
   (add-hook 'company-mode-hook
             (lambda()
@@ -412,10 +412,11 @@ you should place your code here."
               (fci-mode t)
               (rainbow-mode t)
               (setq fill-column 120)
+              (display-line-numbers-mode 'absolute)
               ;;(spacemacs/toggle-visual-line-navigation-on)
               (auto-fill-mode t)))
 
-  (realign-mode)
+  ;;(realign-mode)
   (global-company-mode)
   (global-flycheck-mode)
 
