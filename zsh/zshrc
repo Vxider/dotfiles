@@ -8,7 +8,7 @@ source ~/.iterm2_shell_integration.zsh
 # =============================================================================
 #                                  Plugins 
 # =============================================================================
-plugins=(git brew-cask colored-man osx autojump zsh-autosuggestions
+plugins=(git brew-cask colored-man extract osx autojump zsh-autosuggestions
          colored-man-pages zsh-syntax-highlighting docker
          history-substring-search)
 
