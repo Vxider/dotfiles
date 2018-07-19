@@ -43,6 +43,7 @@ alias docker_rm_all="docker rm -f \$(docker ps -a -f status=exited -q)"
 alias lscolors="for code ({000..255}) print -P -- \"\$code: %F{\$code}This is how your text would look like%f\""
 alias e="emacs"
 alias enw="emacs -nw"
+alias git_status_subfolder="find . -maxdepth 1 -mindepth 1 -type d -exec sh -c '(echo {} && cd {} && git status -s && echo)' \;"
 
 ## ================Keybindings====================
 # keybinding for history-substring-search
