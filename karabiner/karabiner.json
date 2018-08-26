@@ -271,6 +271,26 @@
                                     "key_code": "d",
                                     "modifiers": {
                                         "mandatory": [
+                                            "right_shift",
+                                            "right_command"
+                                        ],
+                                        "optional": [
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "open /Volumes/E-Disk"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "d",
+                                    "modifiers": {
+                                        "mandatory": [
                                             "right_shift"
                                         ],
                                         "optional": [
