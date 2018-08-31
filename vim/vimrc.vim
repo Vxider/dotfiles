@@ -50,5 +50,5 @@ else
 endif
 
 "主题
-Plugin 'dracula/vim'
+Plugin 'Dracula/vim'
 :PluginInstall

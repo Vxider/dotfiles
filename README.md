@@ -1,3 +1,1 @@
 # Vxider dotfiles
-
-## INSTALL

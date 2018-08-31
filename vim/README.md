@@ -2,7 +2,7 @@
 
 Based on use [The Ultimate vimrc](https://github.com/amix/vimrc.git)
 
-## Install latest vim
+## 1. Install latest vim
 
 1. download source from github
 
@@ -15,4 +15,10 @@ git clone https://github.com/vim/vim.git
 ```sh
 ./configure && make -j
 make install
+```
+
+2. Install Configurations
+
+```sh
+./install_conf.sh
 ```
