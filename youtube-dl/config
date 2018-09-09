@@ -1,17 +1,25 @@
 # Lines starting with # are comments
-
+# Always extract audio
+#-x
 # Do not copy the mtime
 --no-mtime
 
 # Use this proxy
 #--proxy 127.0.0.1:9090
---proxy socks5://127.0.0.1:9091
+# --proxy socks5://127.0.0.1:9091
 
 # auto login
---netrc
+# --netrc
+
+# force use ipv6
+# -6
 
 # Save all videos under Movies directory in your home directory
--o /Users/Vxider/Downloads/youtube-dl/%(title)s.%(ext)s
+-o /Users/Vxider/Downloads/youtube/%(title)s.%(ext)s
 
 # Download best format available but not better that 480p
 -f 'bestvideo[height<=1080]+bestaudio/best[height<=1080]'
+
+--merge-output-format mkv
+
+# --youtube-skip-dash-manifest 
