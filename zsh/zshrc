@@ -1,3 +1,5 @@
+export TERM="xterm-256color"
+
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
 # install Theme
@@ -44,6 +46,7 @@ alias lscolors="for code ({000..255}) print -P -- \"\$code: %F{\$code}This is ho
 alias e="emacs"
 alias enw="emacs -nw"
 alias git_status_subfolder="find . -maxdepth 1 -mindepth 1 -type d -exec sh -c '(echo {} && cd {} && git status -s && echo)' \;"
+#alias git_pull_subfolder="find . -maxdepth 1 -mindepth 1 -type d -exec sh -c '(echo {} && cd {} && git pull -s && echo)' \;"
 
 ## ================Keybindings====================
 # keybinding for history-substring-search
