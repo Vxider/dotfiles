@@ -10,7 +10,7 @@ source ~/.iterm2_shell_integration.zsh
 # =============================================================================
 plugins=(git brew-cask colored-man extract osx autojump zsh-autosuggestions
          colored-man-pages zsh-syntax-highlighting docker
-         history-substring-search)
+         history-substring-search safe-paste)
 
 source $ZSH/oh-my-zsh.sh
 
