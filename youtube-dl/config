@@ -6,7 +6,7 @@
 
 # Use this proxy
 #--proxy 127.0.0.1:9090
-# --proxy socks5://127.0.0.1:9091
+--proxy socks5://127.0.0.1:1083
 
 # auto login
 # --netrc
@@ -18,7 +18,7 @@
 -o /Users/Vxider/Downloads/youtube/%(title)s.%(ext)s
 
 # Download best format available but not better that 480p
--f 'bestvideo[height<=1080]+bestaudio/best[height<=1080]'
+-f 'bestvideo[height<=720]+bestaudio/best[height<=720]'
 
 --merge-output-format mkv
 
