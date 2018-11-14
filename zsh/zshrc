@@ -56,7 +56,10 @@ alias lscolors="for code ({000..255}) print -P -- \"\$code: %F{\$code}This is ho
 ## ==================Funtions=====================
 function date_update()
 {
-	date_utc=$(curl -sD - google.com | grep '^Date:' | cut -d' ' -f3-6) && [ -n "$date_utc"   ] && sudo date -s "${date_utc}Z"
+	date_utc=$(curl -sD - google.com | grep '^Date:' | cut -d' ' -f3-6) 
+    [ -n "$date_utc"   ]
+    sudo date -s "${date_utc}Z"
+    echo $date_utc
 }
 
 function git_pull_subfolder()
