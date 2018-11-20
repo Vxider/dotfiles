@@ -776,14 +776,14 @@
                         ]
                     },
                     {
-                        "description": "[⌘+;]: Insert ; to the end of line",
+                        "description": "[⌃+;]: Insert ; to the end of line",
                         "manipulators": [
                             {
                                 "from": {
                                     "key_code": "semicolon",
                                     "modifiers": {
                                         "mandatory": [
-                                            "left_command"
+                                            "left_option"
                                         ]
                                     }
                                 },
@@ -793,6 +793,30 @@
                                     },
                                     {
                                         "key_code": "semicolon"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "[⌃+,]: Insert , to the end of line",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "comma",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_option"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "end"
+                                    },
+                                    {
+                                        "key_code": "comma"
                                     }
                                 ],
                                 "type": "basic"
