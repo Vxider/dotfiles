@@ -2,8 +2,11 @@ export TERM="xterm-256color"
 
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
-# install Theme
+# Theme configuration
 source ~/.dotfiles/zsh/configs/theme.zsh
+# History configuration
+source ~/.dotfiles/zsh/configs/history.zsh
+
 # iterm2 shell integration
 source ~/.iterm2_shell_integration.zsh
 
@@ -12,7 +15,7 @@ source ~/.iterm2_shell_integration.zsh
 # =============================================================================
 plugins=(git brew-cask colored-man extract osx autojump zsh-autosuggestions
 colored-man-pages zsh-syntax-highlighting docker
-history-substring-search safe-paste)
+history-substring-search safe-paste zsh-peco-history)
 
 source $ZSH/oh-my-zsh.sh
 

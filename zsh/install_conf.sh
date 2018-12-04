@@ -12,6 +12,9 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 # install zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
+# install zsh-peco-history
+git clone https://github.com/jimeh/zsh-peco-history.git $ZSH_CUSTOM/plugins/zsh-peco-history
+
 mkdir -p ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes
 cp -r ~/.dotfiles/zsh/powerlevel9k ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/
 ln -sf ~/.dotfiles/zsh/zshrc ~/.zshrc
