@@ -17,6 +17,8 @@ plugins=(git brew-cask colored-man extract osx autojump zsh-autosuggestions
 colored-man-pages zsh-syntax-highlighting docker
 history-substring-search safe-paste zsh-peco-history)
 
+autoload -U zmv
+
 source $ZSH/oh-my-zsh.sh
 
 # =============================================================================

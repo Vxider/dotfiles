@@ -748,14 +748,14 @@
                         ]
                     },
                     {
-                        "description": "[⌘+⇧+⏎]: Insert ; and press enter",
+                        "description": "[⌃+⌘+;]: Insert ; and press enter",
                         "manipulators": [
                             {
                                 "from": {
-                                    "key_code": "return_or_enter",
+                                    "key_code": "semicolon",
                                     "modifiers": {
                                         "mandatory": [
-                                            "left_shift",
+                                            "left_control",
                                             "left_command"
                                         ]
                                     }
@@ -783,7 +783,7 @@
                                     "key_code": "semicolon",
                                     "modifiers": {
                                         "mandatory": [
-                                            "left_option"
+                                            "left_control"
                                         ]
                                     }
                                 },
@@ -807,7 +807,7 @@
                                     "key_code": "comma",
                                     "modifiers": {
                                         "mandatory": [
-                                            "left_option"
+                                            "left_control"
                                         ]
                                     }
                                 },
