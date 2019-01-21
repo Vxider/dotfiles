@@ -319,7 +319,7 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command": "open /System/Library/CoreServices/Finder.app"
+                                        "shell_command": "open '/Applications/Path Finder.app'"
                                     }
                                 ],
                                 "type": "basic"

@@ -19,6 +19,8 @@ mkdir -p ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes
 cp -r ~/.dotfiles/zsh/powerlevel9k ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/
 ln -sf ~/.dotfiles/zsh/zshrc ~/.zshrc
 
+mkdir -p ~/.log
+
 echo 'export DEFAULT_USER=""' >> ~/.zshrc.local
 echo 'Please set DEFAULT_USER in ~/.zshrc.local'
 echo 'Installed zshrc configuration successfully!'
