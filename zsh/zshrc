@@ -15,7 +15,7 @@ source ~/.iterm2_shell_integration.zsh
 # =============================================================================
 plugins=(git extract osx autojump zsh-autosuggestions
 colored-man-pages zsh-syntax-highlighting docker
-history-substring-search safe-paste zsh-peco-history)
+history-substring-search safe-paste zsh-peco-history fzf)
 
 autoload -U zmv
 
@@ -28,6 +28,9 @@ source $ZSH/oh-my-zsh.sh
 COMPLETION_WAITING_DOTS="false" # Uncomment the following line to display red dots whilst waiting for completion.
 	export EDITOR='vim' # Preferred editor for local and remote sessions
 
+## =====================FZF=======================
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
 
 ## ===================History=====================
 setopt hist_ignore_all_dups inc_append_history
@@ -93,3 +96,20 @@ function google_response_time()
 
 ## ============Local Configuration================
 source ~/.zshrc.local
+
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/usr/local/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/usr/local/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/usr/local/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/usr/local/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
