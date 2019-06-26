@@ -1,0 +1,9 @@
+windows:
+  - name: 124-127
+    root: ~
+    layout: tiled
+    panes:
+      - ssh 124
+      - ssh 125
+      - ssh 126
+      - ssh 127

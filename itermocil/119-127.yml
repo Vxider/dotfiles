@@ -1,0 +1,14 @@
+windows:
+  - name: 119-127
+    root: ~
+    layout: 3_columns
+    panes:
+      - ssh 119
+      - ssh 120
+      - ssh 121
+      - ssh 122
+      - ssh 123
+      - ssh 124
+      - ssh 125
+      - ssh 126
+      - ssh 127
