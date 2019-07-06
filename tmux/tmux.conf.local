@@ -307,3 +307,12 @@ bind -n M-l select-pane -R
 # Shift arrow to switch windows
 bind -n S-Left  previous-window
 bind -n S-Right next-window
+
+# TMUX Plugins
+# List of plugins
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'tmux-plugins/tmux-sensible'
+set -g @plugin 'tmux-plugins/tmux-resurrect'
+
+# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
+run -b '~/.tmux/plugins/tpm/tpm'
