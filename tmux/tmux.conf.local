@@ -113,7 +113,7 @@ tmux_conf_theme_window_status_fg='#8a8a8a'              # light gray
 # tmux_conf_theme_window_status_bg='#080808'              # dark gray
 tmux_conf_theme_window_status_bg='#0E0E0E'              # dark gray
 tmux_conf_theme_window_status_attr='none'
-tmux_conf_theme_window_status_format='#I #(~/.local/bin/codex-buddy tmux-window-dot "#{window_id}")#[none]#[fg=#8a8a8a]#[bg=#0E0E0E]#{?window_last_flag,#[fg=#00afff],}#{?window_activity_flag,#[underscore],}#{?window_bell_flag,#[fg=#ffff00]#[bold]#[blink],}#W'
+tmux_conf_theme_window_status_format='#I #(/home/vxider/.local/bin/codex-buddy tmux-window-dot "#{window_id}")#[none]#[fg=#8a8a8a]#[bg=#0E0E0E]#{?window_last_flag,#[fg=#00afff],}#{?window_activity_flag,#[underscore],}#{?window_bell_flag,#[fg=#ffff00]#[bold]#[blink],}#W'
 #tmux_conf_theme_window_status_format='#{circled_window_index} #W'
 #tmux_conf_theme_window_status_format='#I #W#{?window_bell_flag,🔔,}#{?window_zoomed_flag,🔍,}'
 
@@ -123,7 +123,7 @@ tmux_conf_theme_window_status_format='#I #(~/.local/bin/codex-buddy tmux-window-
 tmux_conf_theme_window_status_current_fg='#000000'      # black
 tmux_conf_theme_window_status_current_bg='#00afff'      # light blue
 tmux_conf_theme_window_status_current_attr='bold'
-tmux_conf_theme_window_status_current_format='#I #(~/.local/bin/codex-buddy tmux-window-dot --active-window "#{window_id}" "#{window_id}")#[none]#[fg=#000000]#[bg=#00afff]#[bold]#{?window_bell_flag,#[fg=#ffff00]#[blink],}#W'
+tmux_conf_theme_window_status_current_format='#I #(/home/vxider/.local/bin/codex-buddy tmux-window-dot --active-window "#{window_id}" "#{window_id}")#[none]#[fg=#000000]#[bg=#00afff]#[bold]#{?window_bell_flag,#[fg=#ffff00]#[blink],}#W'
 #tmux_conf_theme_window_status_current_format='#{circled_window_index} #W'
 #tmux_conf_theme_window_status_current_format='#I #W#{?window_zoomed_flag,🔍,}'
 
@@ -173,7 +173,7 @@ tmux_conf_theme_right_separator_sub=''  #   PowerlineSymbols.otf font
 # power_wattage='system_profiler SPPowerDataType | grep "Wattage (W)" | awk '"'"'{print $3 "W"}'"'"''
 tmux_conf_theme_status_left=' ❐ #S'
 # tmux_conf_theme_status_right="#{prefix}#(cut -c3- ~/.tmux.conf.local | zsh -s _power_wattage) , "\uf64f%R" | #{username}#{root} | #{hostname} "
-	tmux_conf_theme_status_right="#(~/.local/bin/tmux-status-lines)#{prefix}#{?#{e|<=:#{client_width},80},,#(perl -ne 's/^# ?//; print if /^set -e$/../^\"\\$@\"$/' ~/.tmux.conf.local | zsh -s _cpu_usage) #(perl -ne 's/^# ?//; print if /^set -e$/../^\"\\$@\"$/' ~/.tmux.conf.local | zsh -s _gpu_usage) #(perl -ne 's/^# ?//; print if /^set -e$/../^\"\\$@\"$/' ~/.tmux.conf.local | zsh -s _mem_usage) #(perl -ne 's/^# ?//; print if /^set -e$/../^\"\\$@\"$/' ~/.tmux.conf.local | zsh -s _network_usage) #(perl -ne 's/^# ?//; print if /^set -e$/../^\"\\$@\"$/' ~/.tmux.conf.local | zsh -s _cpu_temp) #(perl -ne 's/^# ?//; print if /^set -e$/../^\"\\$@\"$/' ~/.tmux.conf.local | zsh -s _battery_segment) #(CPA_MANAGEMENT_KEY=${CPA_MANAGEMENT_KEY:-} ~/.local/bin/cpa-usage --available --timeout 2 2>/dev/null || true) }| #{username}#{root} | #{hostname} "
+	tmux_conf_theme_status_right="#(~/.local/bin/tmux-status-lines)#{prefix}#(perl -ne 's/^# ?//; print if /^set -e$/../^\"\\$@\"$/' ~/.tmux.conf.local | zsh -s _cpu_usage) #(perl -ne 's/^# ?//; print if /^set -e$/../^\"\\$@\"$/' ~/.tmux.conf.local | zsh -s _gpu_usage) #(perl -ne 's/^# ?//; print if /^set -e$/../^\"\\$@\"$/' ~/.tmux.conf.local | zsh -s _mem_usage) #(perl -ne 's/^# ?//; print if /^set -e$/../^\"\\$@\"$/' ~/.tmux.conf.local | zsh -s _network_usage) #(perl -ne 's/^# ?//; print if /^set -e$/../^\"\\$@\"$/' ~/.tmux.conf.local | zsh -s _cpu_temp) #(perl -ne 's/^# ?//; print if /^set -e$/../^\"\\$@\"$/' ~/.tmux.conf.local | zsh -s _battery_segment) #(CPA_MANAGEMENT_KEY=123456 /home/vxider/.local/bin/cpa-usage --available --timeout 2 2>/dev/null || true)  | #{username}#{root} | #{hostname} "
 
 # status left style
 tmux_conf_theme_status_left_fg='#000000,#e4e4e4,#e4e4e4'  # black, white , white
@@ -1100,20 +1100,20 @@ set -g @status_left_estimated_width 10
 set -g @status_right_estimated_width 60
 run-shell -b '~/.local/bin/tmux-status-lines'
 
-set -g @center_window_status_format '#[none]#[fg=#8a8a8a]#[bg=#0E0E0E]#{?window_last_flag,#[fg=#00afff],}#{?window_activity_flag,#[underscore],}#{?window_bell_flag,#[fg=#ffff00]#[bold]#[blink],} #I #(~/.local/bin/codex-buddy tmux-window-dot "#{window_id}")#[none]#[fg=#8a8a8a]#[bg=#0E0E0E]#{?window_last_flag,#[fg=#00afff],}#{?window_activity_flag,#[underscore],}#{?window_bell_flag,#[fg=#ffff00]#[bold]#[blink],}#W #[none]#[fg=#8a8a8a]#[bg=#0E0E0E]'
-set -g @center_window_status_current_format '#[none]#[fg=#000000]#[bg=#00afff]#[bold]#{?window_bell_flag,#[fg=#ffff00]#[blink],} #I #(~/.local/bin/codex-buddy tmux-window-dot --active-window "#{window_id}" "#{window_id}")#[none]#[fg=#000000]#[bg=#00afff]#[bold]#{?window_bell_flag,#[fg=#ffff00]#[blink],}#W #[none]#[fg=#8a8a8a]#[bg=#0E0E0E]'
+set -g @center_window_status_format '#[none]#[fg=#8a8a8a]#[bg=#0E0E0E]#{?window_last_flag,#[fg=#00afff],}#{?window_activity_flag,#[underscore],}#{?window_bell_flag,#[fg=#ffff00]#[bold]#[blink],} #I #(/home/vxider/.local/bin/codex-buddy tmux-window-dot "#{window_id}")#[none]#[fg=#8a8a8a]#[bg=#0E0E0E]#{?window_last_flag,#[fg=#00afff],}#{?window_activity_flag,#[underscore],}#{?window_bell_flag,#[fg=#ffff00]#[bold]#[blink],}#W #[none]#[fg=#8a8a8a]#[bg=#0E0E0E]'
+set -g @center_window_status_current_format '#[none]#[fg=#000000]#[bg=#00afff]#[bold]#{?window_bell_flag,#[fg=#ffff00]#[blink],} #I #(/home/vxider/.local/bin/codex-buddy tmux-window-dot --active-window "#{window_id}" "#{window_id}")#[none]#[fg=#000000]#[bg=#00afff]#[bold]#{?window_bell_flag,#[fg=#ffff00]#[blink],}#W #[none]#[fg=#8a8a8a]#[bg=#0E0E0E]'
 set -g status-format[0] '#[align=left]#{E:status-left}#{W:#[range=window|#{window_index}]#{E:window-status-format}#[norange],#[range=window|#{window_index}]#{E:window-status-current-format}#[norange]}#[align=right]#{E:status-right}'
 set -g status-format[1] '#[align=left]#{E:status-left}#[align=right]#{E:status-right}'
 
 # Helper: run the overflow checker then apply the layout.
 # Uses set-hook with array index to avoid overwriting other hooks on the same event.
-set-hook -g client-attached[1] 'run-shell "~/.local/bin/tmux-status-lines"; if -F "#{e|==:#{@status_lines},2}" "set -g status 2; set -g status-format[0] \"#[align=centre]#{W:#[range=window|#{window_index}]#{E:@center_window_status_format}#[norange],#[range=window|#{window_index}]#{E:@center_window_status_current_format}#[norange]}\"; set -g status-format[1] \"#[align=left]#{E:status-left}#[align=right]#{E:status-right}\"" "set -g status on; set -g status-format[0] \"#[align=left]#{E:status-left}#{W:#[range=window|#{window_index}]#{E:window-status-format}#[norange],#[range=window|#{window_index}]#{E:window-status-current-format}#[norange]}#[align=right]#{E:status-right}\""'
-set-hook -g client-resized[1] 'run-shell "~/.local/bin/tmux-status-lines"; if -F "#{e|==:#{@status_lines},2}" "set -g status 2; set -g status-format[0] \"#[align=centre]#{W:#[range=window|#{window_index}]#{E:@center_window_status_format}#[norange],#[range=window|#{window_index}]#{E:@center_window_status_current_format}#[norange]}\"; set -g status-format[1] \"#[align=left]#{E:status-left}#[align=right]#{E:status-right}\"" "set -g status on; set -g status-format[0] \"#[align=left]#{E:status-left}#{W:#[range=window|#{window_index}]#{E:window-status-format}#[norange],#[range=window|#{window_index}]#{E:window-status-current-format}#[norange]}#[align=right]#{E:status-right}\""'
-set-hook -g window-linked[0] 'run-shell "~/.local/bin/tmux-status-lines"; if -F "#{e|==:#{@status_lines},2}" "set -g status 2; set -g status-format[0] \"#[align=centre]#{W:#[range=window|#{window_index}]#{E:@center_window_status_format}#[norange],#[range=window|#{window_index}]#{E:@center_window_status_current_format}#[norange]}\"; set -g status-format[1] \"#[align=left]#{E:status-left}#[align=right]#{E:status-right}\"" "set -g status on; set -g status-format[0] \"#[align=left]#{E:status-left}#{W:#[range=window|#{window_index}]#{E:window-status-format}#[norange],#[range=window|#{window_index}]#{E:window-status-current-format}#[norange]}#[align=right]#{E:status-right}\""'
-set-hook -g window-unlinked[0] 'run-shell "~/.local/bin/tmux-status-lines"; if -F "#{e|==:#{@status_lines},2}" "set -g status 2; set -g status-format[0] \"#[align=centre]#{W:#[range=window|#{window_index}]#{E:@center_window_status_format}#[norange],#[range=window|#{window_index}]#{E:@center_window_status_current_format}#[norange]}\"; set -g status-format[1] \"#[align=left]#{E:status-left}#[align=right]#{E:status-right}\"" "set -g status on; set -g status-format[0] \"#[align=left]#{E:status-left}#{W:#[range=window|#{window_index}]#{E:window-status-format}#[norange],#[range=window|#{window_index}]#{E:window-status-current-format}#[norange]}#[align=right]#{E:status-right}\""'
-set-hook -g session-window-changed[0] 'run-shell "~/.local/bin/tmux-status-lines"; if -F "#{e|==:#{@status_lines},2}" "set -g status 2; set -g status-format[0] \"#[align=centre]#{W:#[range=window|#{window_index}]#{E:@center_window_status_format}#[norange],#[range=window|#{window_index}]#{E:@center_window_status_current_format}#[norange]}\"; set -g status-format[1] \"#[align=left]#{E:status-left}#[align=right]#{E:status-right}\"" "set -g status on; set -g status-format[0] \"#[align=left]#{E:status-left}#{W:#[range=window|#{window_index}]#{E:window-status-format}#[norange],#[range=window|#{window_index}]#{E:window-status-current-format}#[norange]}#[align=right]#{E:status-right}\""'
+set-hook -g client-attached[1] 'run-shell ~/.local/bin/tmux-status-lines; run-shell ~/.local/bin/tmux-apply-status-lines'
+set-hook -g client-resized[1] 'run-shell ~/.local/bin/tmux-status-lines; run-shell ~/.local/bin/tmux-apply-status-lines'
+set-hook -g window-linked[0] 'run-shell ~/.local/bin/tmux-status-lines; run-shell ~/.local/bin/tmux-apply-status-lines'
+set-hook -g window-unlinked[0] 'run-shell ~/.local/bin/tmux-status-lines; run-shell ~/.local/bin/tmux-apply-status-lines'
+set-hook -g session-window-changed[0] 'run-shell ~/.local/bin/tmux-status-lines; run-shell ~/.local/bin/tmux-apply-status-lines'
 
 # Initial evaluation on source
-if -F "#{e|==:#{@status_lines},2}" "set -g status 2; set -g status-format[0] \"#[align=centre]#{W:#[range=window|#{window_index}]#{E:@center_window_status_format}#[norange],#[range=window|#{window_index}]#{E:@center_window_status_current_format}#[norange]}\"; set -g status-format[1] \"#[align=left]#{E:status-left}#[align=right]#{E:status-right}\"" "set -g status on; set -g status-format[0] \"#[align=left]#{E:status-left}#{W:#[range=window|#{window_index}]#{E:window-status-format}#[norange],#[range=window|#{window_index}]#{E:window-status-current-format}#[norange]}#[align=right]#{E:status-right}\""
+run-shell ~/.local/bin/tmux-apply-status-lines
 # Disabled: tmux 3.4 rejects this empty target while sourcing with "empty value".
 # bind-key -n MouseDown1Status select-window -t =
