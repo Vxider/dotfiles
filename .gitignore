@@ -1,0 +1,13 @@
+# macOS
+.DS_Store
+
+# Temp files
+.__smb*
+*.bak
+*.bak-*
+
+# Karabiner auto-generated
+karabiner/karabiner/automatic_backups/
+
+# Machine-specific configs (local copies, not templates)
+# These live as ~/.zshrc.pre and ~/.zshrc.post, not in the repo

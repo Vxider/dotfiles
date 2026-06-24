@@ -1,0 +1,9 @@
+# Machine-specific configuration
+# Add your local settings here, e.g.:
+# - pyenv: export PYENV_ROOT=$HOME/.pyenv; export PATH=$PYENV_ROOT/bin:$PATH
+# - iTerm2: test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+# - JAVA: export JDK_HOME="/usr/local/opt/openjdk/"; export JAVA_HOME="/usr/local/opt/openjdk/"
+# - HuggingFace: export HF_ENDPOINT=https://hf-mirror.com; export HF_HOME=$HOME/WorkSpace/models
+# - Proxy NO_PROXY additions: export NO_PROXY="${NO_PROXY},your-domain.ts.net"
+
+# This file will not be overwritten by install_conf.sh if it already exists

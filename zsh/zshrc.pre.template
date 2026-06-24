@@ -1,0 +1,9 @@
+# homebrew - macOS
+# eval "$(/opt/homebrew/bin/brew shellenv)"
+# export ZPLUG_HOME=/opt/homebrew/opt/zplug
+
+# homebrew - Linux
+# eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+# export ZPLUG_HOME=/home/linuxbrew/.linuxbrew/opt/zplug
+
+# Uncomment the appropriate lines for your platform
