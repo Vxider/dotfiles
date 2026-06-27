@@ -95,9 +95,7 @@ tmux_conf_theme_status_fg='#8a8a8a'                     # light gray
 tmux_conf_theme_status_bg='#0E0E0E'                    # black
 tmux_conf_theme_status_attr='none'
 
-# Hard-pin the status line to the bottom so tmux itself cannot leave an extra
-# row below it. If a gap remains after reloading, the terminal emulator is
-# adding bottom padding outside tmux's grid.
+# Keep the status line at the bottom with a fixed two-row layout.
 set -g status-position bottom
 set -g status on
 set -g message-line 0
@@ -105,6 +103,9 @@ set -g pane-border-status off
 set -g status-style "fg=#8a8a8a,bg=#0E0E0E,none"
 set -g status-left-style "fg=#8a8a8a,bg=#0E0E0E,none"
 set -g status-right-style "fg=#8a8a8a,bg=#0E0E0E,none"
+# Termius can leave stale status-bar cells when tmux relies on BCE
+# (background-colour erase) while repainting coloured status lines.
+set -as terminal-overrides ',*:bce@'
 
 # window status style
 #   - built-in variables are:
@@ -173,7 +174,7 @@ tmux_conf_theme_right_separator_sub=''  #   PowerlineSymbols.otf font
 # power_wattage='system_profiler SPPowerDataType | grep "Wattage (W)" | awk '"'"'{print $3 "W"}'"'"''
 tmux_conf_theme_status_left=' ❐ #S'
 # tmux_conf_theme_status_right="#{prefix}#(cut -c3- ~/.tmux.conf.local | zsh -s _power_wattage) , "\uf64f%R" | #{username}#{root} | #{hostname} "
-	tmux_conf_theme_status_right="#(~/.local/bin/tmux-status-lines)#{prefix}#(perl -ne 's/^# ?//; print if /^set -e$/../^\"\\$@\"$/' ~/.tmux.conf.local | zsh -s _cpu_usage) #(perl -ne 's/^# ?//; print if /^set -e$/../^\"\\$@\"$/' ~/.tmux.conf.local | zsh -s _gpu_usage) #(perl -ne 's/^# ?//; print if /^set -e$/../^\"\\$@\"$/' ~/.tmux.conf.local | zsh -s _mem_usage) #(perl -ne 's/^# ?//; print if /^set -e$/../^\"\\$@\"$/' ~/.tmux.conf.local | zsh -s _network_usage) #(perl -ne 's/^# ?//; print if /^set -e$/../^\"\\$@\"$/' ~/.tmux.conf.local | zsh -s _cpu_temp) #(perl -ne 's/^# ?//; print if /^set -e$/../^\"\\$@\"$/' ~/.tmux.conf.local | zsh -s _battery_segment) #(CPA_MANAGEMENT_KEY=123456 /home/vxider/.local/bin/cpa-usage --available --timeout 2 2>/dev/null || true)  | #{username}#{root} | #{hostname} "
+	tmux_conf_theme_status_right="#(~/.local/bin/tmux-status-lines)#{prefix}#(perl -ne 's/^# ?//; print if /^set -e$/../^\"\\$@\"$/' ~/.tmux.conf.local | zsh -s _cpu_usage) #(perl -ne 's/^# ?//; print if /^set -e$/../^\"\\$@\"$/' ~/.tmux.conf.local | zsh -s _gpu_usage) #(perl -ne 's/^# ?//; print if /^set -e$/../^\"\\$@\"$/' ~/.tmux.conf.local | zsh -s _mem_usage) #(perl -ne 's/^# ?//; print if /^set -e$/../^\"\\$@\"$/' ~/.tmux.conf.local | zsh -s _network_usage) #(perl -ne 's/^# ?//; print if /^set -e$/../^\"\\$@\"$/' ~/.tmux.conf.local | zsh -s _cpu_temp) #(perl -ne 's/^# ?//; print if /^set -e$/../^\"\\$@\"$/' ~/.tmux.conf.local | zsh -s _battery_segment) #(CPA_MANAGEMENT_KEY=123456 /home/vxider/.local/bin/cpa-usage --available --timeout 2 2>/dev/null || true)  | #{username}#{root} | #{host_short}"
 
 # status left style
 tmux_conf_theme_status_left_fg='#000000,#e4e4e4,#e4e4e4'  # black, white , white
@@ -517,10 +518,10 @@ run -b '~/.tmux/plugins/tpm/tpm'
 #
 #       case "$sysfs_status" in
 #         Charging)
-#           battery_status=''
+#           battery_status='AC'
 #           ;;
 #         Full|Not\ charging)
-#           battery_status=''
+#           battery_status='AC'
 #           ;;
 #         Discharging|Unknown)
 #           battery_status=""
@@ -540,10 +541,10 @@ run -b '~/.tmux/plugins/tpm/tpm'
 #           fi
 #           case "$upower_state" in
 #             charging|pending-charge)
-#               battery_status=''
+#               battery_status='AC'
 #               ;;
 #             fully-charged)
-#               battery_status=''
+#               battery_status='AC'
 #               ;;
 #             discharging|empty|pending-discharge)
 #               battery_status=""
@@ -561,10 +562,10 @@ run -b '~/.tmux/plugins/tpm/tpm'
 #       fi
 #       case "$pmset_state" in
 #         charging)
-#           battery_status=''
+#           battery_status='AC'
 #           ;;
 #         charged|finishing\ charge)
-#           battery_status=''
+#           battery_status='AC'
 #           ;;
 #         discharging)
 #           battery_status=""
@@ -581,37 +582,15 @@ run -b '~/.tmux/plugins/tpm/tpm'
 #       return
 #   fi
 #
-#   if (( percentage >= 95 )); then
-#       battery_icon='󰁹'
-#   elif (( percentage >= 90 )); then
-#       battery_icon='󰂂'
-#   elif (( percentage >= 80 )); then
-#       battery_icon='󰂁'
-#   elif (( percentage >= 70 )); then
-#       battery_icon='󰂀'
-#   elif (( percentage >= 60 )); then
-#       battery_icon='󰁿'
-#   elif (( percentage >= 50 )); then
-#       battery_icon='󰁾'
-#   elif (( percentage >= 40 )); then
-#       battery_icon='󰁽'
-#   elif (( percentage >= 30 )); then
-#       battery_icon='󰁼'
-#   elif (( percentage >= 20 )); then
-#       battery_icon='󰁻'
-#   elif (( percentage >= 10 )); then
-#       battery_icon='󰁺'
-#   else
-#       battery_icon='󰂃'
-#   fi
+#   battery_icon='BAT'
 #
 #   if [[ -z $battery_status ]]; then
 #       battery_status=''
-#   elif [[ $battery_status == *""* ]]; then
+#   elif [[ $battery_status == "AC" ]]; then
 #       battery_icon=''
 #   fi
 #
-#   if [[ $battery_status == *""* ]]; then
+#   if [[ $battery_status == "AC" ]]; then
 #       if (( percentage >= 95 )); then
 #           color='#[fg=colour46]'
 #       else
@@ -781,7 +760,7 @@ run -b '~/.tmux/plugins/tpm/tpm'
 #       }'
 #   }
 #
-#   printf "#[fg=colour45]󰇚%s #[fg=colour69]󰕒%s#[fg=colour255]" "$(human_rate "$rx_rate")" "$(human_rate "$tx_rate")"
+#   printf "#[fg=colour45]↓%s #[fg=colour69]↑%s#[fg=colour255]" "$(human_rate "$rx_rate")" "$(human_rate "$tx_rate")"
 # }
 #
 # _cpu_temp(){
